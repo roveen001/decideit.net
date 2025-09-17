@@ -22,6 +22,8 @@ export interface Topic {
   title: string;
   description: string;
   category: string;
+  scope: 'global' | 'country';
+  country?: string;
   votes: Vote;
   createdAt: string; // Using string for simplicity, can be Date object
   author: User;

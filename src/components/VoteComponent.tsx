@@ -2,24 +2,55 @@
 
 import { castVote } from "@/lib/actions";
 import { Button } from "./ui/button";
-import { ThumbsDown, ThumbsUp } from "lucide-react";
+import { ThumbsDown, ThumbsUp, Ban } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import type { Topic } from "@/lib/types";
+import { useUser } from "@/hooks/useUser";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+
 
 type VoteComponentProps = {
-  topicId: string;
+  topic: Topic;
 };
 
-export default function VoteComponent({ topicId }: VoteComponentProps) {
+export default function VoteComponent({ topic }: VoteComponentProps) {
   const [voted, setVoted] = useState<'for' | 'against' | null>(null);
+  const { user } = useUser();
 
   const handleVote = async (voteType: 'for' | 'against') => {
     // In a real app, you might check if user is verified first.
     setVoted(voteType);
-    await castVote(topicId, voteType);
+    await castVote(topic.id, voteType);
     // You could show a toast message here.
   };
+
+  const isEligibleToVote = topic.scope === 'global' || (topic.scope === 'country' && user?.country === topic.country);
+
+  if (!user?.isVerified) {
+    return (
+        <Alert>
+            <Ban className="h-4 w-4" />
+            <AlertTitle>Verification Required</AlertTitle>
+            <AlertDescription>
+                You must be a verified user to vote.
+            </AlertDescription>
+        </Alert>
+    )
+  }
+
+  if (!isEligibleToVote) {
+    return (
+        <Alert>
+            <Ban className="h-4 w-4" />
+            <AlertTitle>Voting Not Allowed</AlertTitle>
+            <AlertDescription>
+                This poll is restricted to users from {topic.country}.
+            </AlertDescription>
+        </Alert>
+    )
+  }
 
   return (
     <Card>

@@ -6,6 +6,8 @@ export const topics: Topic[] = [
     title: 'Should renewable energy be subsidized by the government?',
     description: 'A debate on the economic and environmental implications of subsidizing renewable energy sources like solar and wind power versus traditional fossil fuels.',
     category: 'Environment',
+    scope: 'country',
+    country: 'USA',
     votes: { for: 1204, against: 843 },
     createdAt: '2024-07-20T10:00:00Z',
     author: {
@@ -24,6 +26,7 @@ export const topics: Topic[] = [
     title: 'Is a four-day work week the future of employment?',
     description: 'Exploring the pros and cons of transitioning to a four-day work week, considering productivity, employee well-being, and business impact.',
     category: 'Lifestyle',
+    scope: 'global',
     votes: { for: 2567, against: 1233 },
     createdAt: '2024-07-22T14:30:00Z',
     author: {
@@ -39,6 +42,7 @@ export const topics: Topic[] = [
     title: 'Should AI development be more heavily regulated?',
     description: 'A discussion on the ethical considerations and potential risks of advanced artificial intelligence, and whether stricter regulations are needed.',
     category: 'Technology',
+    scope: 'global',
     votes: { for: 1892, against: 1950 },
     createdAt: '2024-07-21T09:00:00Z',
     author: {
@@ -52,6 +56,8 @@ export const topics: Topic[] = [
     title: 'Mandatory term limits for all elected officials.',
     description: 'A proposal for implementing mandatory term limits for all levels of government to reduce corruption and increase accountability.',
     category: 'Politics',
+    scope: 'country',
+    country: 'Canada',
     votes: { for: 3012, against: 754 },
     createdAt: '2024-07-19T18:00:00Z',
     author: {
@@ -68,6 +74,7 @@ export const topics: Topic[] = [
     title: 'Should plastic packaging be banned globally?',
     description: 'Examining the feasibility and impact of a worldwide ban on single-use plastic packaging to combat pollution.',
     category: 'Environment',
+    scope: 'global',
     votes: { for: 980, against: 320 },
     createdAt: '2024-07-23T11:00:00Z',
     author: {
@@ -81,6 +88,8 @@ export const topics: Topic[] = [
     title: 'Is universal basic income a viable economic strategy?',
     description: 'Analyzing the potential benefits and drawbacks of implementing a universal basic income (UBI) for all citizens.',
     category: 'Politics',
+    scope: 'country',
+    country: 'Germany',
     votes: { for: 1543, against: 1689 },
     createdAt: '2024-07-24T08:20:00Z',
     author: {
