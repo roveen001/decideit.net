@@ -9,7 +9,6 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import type { Comment } from "@/lib/types";
 import AddReplyForm from "./AddReplyForm";
-import { useTranslations } from "next-intl";
 
 type CommentCardProps = {
   comment: Comment;
@@ -18,7 +17,6 @@ type CommentCardProps = {
 };
 
 export default function CommentCard({ comment, topicId, isReply = false }: CommentCardProps) {
-  const t = useTranslations('CommentCard');
   const [showReplyForm, setShowReplyForm] = useState(false);
   const timeAgo = formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true });
 
@@ -69,7 +67,7 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
                   onClick={() => setShowReplyForm(!showReplyForm)}
                   className="flex items-center gap-1 hover:text-primary transition-colors"
                 >
-                  <MessageSquare className="h-4 w-4" /> {t('reply')}
+                  <MessageSquare className="h-4 w-4" /> Reply
                 </button>
               )}
             </div>

@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SubmitButton } from "./SubmitButton";
-import { useTranslations } from "next-intl";
 
 const topicSchema = z.object({
   title: z.string().min(10, "Title must be at least 10 characters long"),
@@ -21,7 +20,6 @@ const topicSchema = z.object({
 type TopicFormValues = z.infer<typeof topicSchema>;
 
 export default function SubmitTopicForm() {
-  const t = useTranslations('SubmitTopicForm');
   const { register, handleSubmit, formState: { errors }, control, reset } = useForm<TopicFormValues>({
     resolver: zodResolver(topicSchema),
   });
@@ -33,7 +31,7 @@ export default function SubmitTopicForm() {
     formData.append("category", data.category);
 
     await submitTopic(formData);
-    alert(t('submitSuccess'));
+    alert("Topic submitted for review!");
     reset();
   };
 
@@ -42,26 +40,26 @@ export default function SubmitTopicForm() {
       <Card>
         <CardContent className="pt-6 space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="title">{t('titleLabel')}</Label>
-            <Input id="title" {...register("title")} placeholder={t('titlePlaceholder')} />
+            <Label htmlFor="title">Topic Title</Label>
+            <Input id="title" {...register("title")} placeholder="Title must be at least 10 characters long" />
             {errors.title && <p className="text-sm text-destructive">{errors.title.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="category">{t('categoryLabel')}</Label>
+            <Label htmlFor="category">Category</Label>
             <Controller
               name="category"
               control={control}
               render={({ field }) => (
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <SelectTrigger>
-                    <SelectValue placeholder={t('categoryPlaceholder')} />
+                    <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Politics">{t('categories.politics')}</SelectItem>
-                    <SelectItem value="Technology">{t('categories.technology')}</SelectItem>
-                    <SelectItem value="Environment">{t('categories.environment')}</SelectItem>
-                    <SelectItem value="Lifestyle">{t('categories.lifestyle')}</SelectItem>
-                    <SelectItem value="Other">{t('categories.other')}</SelectItem>
+                    <SelectItem value="Politics">Politics</SelectItem>
+                    <SelectItem value="Technology">Technology</SelectItem>
+                    <SelectItem value="Environment">Environment</SelectItem>
+                    <SelectItem value="Lifestyle">Lifestyle</SelectItem>
+                    <SelectItem value="Other">Other</SelectItem>
                   </SelectContent>
                 </Select>
               )}
@@ -69,13 +67,13 @@ export default function SubmitTopicForm() {
             {errors.category && <p className="text-sm text-destructive">{errors.category.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="description">{t('descriptionLabel')}</Label>
-            <Textarea id="description" {...register("description")} rows={5} placeholder={t('descriptionPlaceholder')} />
+            <Label htmlFor="description">Description</Label>
+            <Textarea id="description" {...register("description")} rows={5} placeholder="Description must be at least 20 characters long" />
             {errors.description && <p className="text-sm text-destructive">{errors.description.message}</p>}
           </div>
         </CardContent>
         <CardFooter>
-          <SubmitButton buttonText={t('submit')} />
+          <SubmitButton buttonText="Submit Topic" />
         </CardFooter>
       </Card>
     </form>

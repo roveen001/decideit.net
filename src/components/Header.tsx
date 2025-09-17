@@ -14,17 +14,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { useTranslations } from "next-intl";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const pathname = usePathname();
-  const t = useTranslations('Header');
-  const tProfile = useTranslations('UserProfile');
-
   const navLinks = [
-    { href: "/topics/submit", label: t('submitTopic'), icon: PlusCircle },
-    { href: "/verify", label: t('verifyIdentity'), icon: FileCheck2 },
+    { href: "/topics/submit", label: "Submit Topic", icon: PlusCircle },
+    { href: "/verify", label: "Verify Identity", icon: FileCheck2 },
   ];
 
   return (
@@ -32,7 +27,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Vote className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline">{t('appName')}</span>
+          <span className="font-bold font-headline">CivicVoice</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -49,7 +44,6 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <LanguageSwitcher />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -64,9 +58,9 @@ export default function Header() {
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">{tProfile('guestUser')}</p>
+                  <p className="text-sm font-medium leading-none">Guest User</p>
                   <p className="text-xs leading-none text-muted-foreground">
-                    {tProfile('guestEmail')}
+                    guest@example.com
                   </p>
                 </div>
               </DropdownMenuLabel>
@@ -74,7 +68,7 @@ export default function Header() {
               <DropdownMenuItem>
                 <Link href="/verify" className="flex items-center">
                   <FileCheck2 className="mr-2 h-4 w-4" />
-                  <span>{tProfile('verifyIdentity')}</span>
+                  <span>Verify Identity</span>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
