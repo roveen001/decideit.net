@@ -81,7 +81,7 @@ export default function TopicPage({ params }: TopicPageProps) {
         <div className="space-y-6">
           {topic.comments.length > 0 ? (
             topic.comments.map((comment) => (
-              <CommentCard key={comment.id} comment={comment} />
+              <CommentCard key={comment.id} comment={comment} topicId={topic.id} />
             ))
           ) : (
             <div className="text-center py-8 px-4 border-2 border-dashed rounded-lg">

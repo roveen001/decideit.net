@@ -13,6 +13,8 @@ export type Comment = {
   text: string;
   author: User;
   createdAt: string;
+  votes: Vote;
+  replies?: Comment[];
 };
 
 export interface Topic {

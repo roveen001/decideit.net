@@ -93,3 +93,14 @@ export async function addComment(formData: FormData) {
     // You would also revalidate the path to show the new comment
     // revalidatePath(`/topics/${topicId}`);
 }
+
+// Placeholder for adding a reply
+export async function addReply(formData: FormData) {
+    const reply = formData.get("reply");
+    const topicId = formData.get("topicId");
+    const parentCommentId = formData.get("parentCommentId");
+    // In a real app, you would save the reply to your database.
+    console.log(`Reply added to comment ${parentCommentId} on topic ${topicId}: ${reply}`);
+    // You would also revalidate the path to show the new reply
+    // revalidatePath(`/topics/${topicId}`);
+}
