@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 
 export const metadata: Metadata = {
-  title: 'Ballot Box',
+  title: 'CivicVoice',
   description: 'The people\'s voice, verified.',
 };
 
