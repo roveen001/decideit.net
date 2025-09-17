@@ -7,6 +7,7 @@ import VoteComponent from "@/components/VoteComponent";
 import { format } from "date-fns";
 import CommentCard from "@/components/CommentCard";
 import { MessageSquare } from "lucide-react";
+import AddCommentForm from "@/components/AddCommentForm";
 
 type TopicPageProps = {
   params: {
@@ -72,6 +73,11 @@ export default function TopicPage({ params }: TopicPageProps) {
                 Comments ({topic.comments.length})
             </h2>
         </div>
+        
+        <div className="mb-8">
+            <AddCommentForm topicId={topic.id} />
+        </div>
+
         <div className="space-y-6">
           {topic.comments.length > 0 ? (
             topic.comments.map((comment) => (

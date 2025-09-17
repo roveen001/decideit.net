@@ -83,3 +83,13 @@ export async function castVote(topicId: string, voteType: 'for' | 'against') {
     // In a real app, you would update the vote count in your database.
     console.log(`Voted ${voteType} on topic ${topicId}`);
 }
+
+// Placeholder for adding a comment
+export async function addComment(formData: FormData) {
+    const comment = formData.get("comment");
+    const topicId = formData.get("topicId");
+    // In a real app, you would save the comment to your database.
+    console.log(`Comment added to topic ${topicId}: ${comment}`);
+    // You would also revalidate the path to show the new comment
+    // revalidatePath(`/topics/${topicId}`);
+}
