@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import CommentCard from "@/components/CommentCard";
 import { MessageSquare, Globe } from "lucide-react";
 import AddCommentForm from "@/components/AddCommentForm";
+import CountryFlag from "@/components/CountryFlag";
 
 type TopicPageProps = {
   params: {
@@ -33,11 +34,9 @@ export default function TopicPage({ params }: TopicPageProps) {
       <div className="space-y-4">
         <div className="flex items-center gap-4">
             <Badge variant="secondary" className="w-fit">{topic.category}</Badge>
-            {topic.scope === 'country' ? (
-                <div className="flex items-center gap-1 text-sm text-muted-foreground font-medium">
-                    <div className="w-4 h-4 rounded-full overflow-hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 48"><path fill="#FFF" d="M0 0h72v48H0z"/><path fill="#B22234" d="M0 0h72v4H0zm0 8h72v4H0zm0 16h72v4H0zm0 24h72v4H0zm0 8h72v4H0zm0-16h72v4H0zm0 8h72v4H0z"/><path fill="#3C3B6E" d="M0 0h36v28H0z"/><g fill="#FFF"><path d="M6.3 19.3 4.4 7.8l-1.9 11.5-9.3-7 9.3-7-1.9 11.5L4.4 5l4.6 14.3-7.5-9.3 7.5-9.3L6.3 19.3zM18.3 19.3l-1.9-11.5-1.9 11.5-9.3-7 9.3-7-1.9 11.5 4.6-14.3 4.6 14.3-7.5-9.3 7.5-9.3-1.9 11.5zM30.3 19.3l-1.9-11.5-1.9 11.5-9.3-7 9.3-7-1.9 11.5 4.6-14.3 4.6 14.3-7.5-9.3 7.5-9.3-1.9 11.5zM6.3 19.3 4.4 7.8l-1.9 11.5-9.3-7 9.3-7-1.9 11.5L4.4 5l4.6 14.3-7.5-9.3 7.5-9.3L6.3 19.3zM14.4 5l-1.9 11.5 1.9 11.5L7 21.2l7.4-9.9-7.5 9.3L12.5 5l-4.6 14.3 9.4 7-9.4 7 1.9-11.5zM26.4 5l-1.9 11.5 1.9 11.5-7.4-9.9 7.4-9.9-7.5 9.3L24.5 5l-4.6 14.3 9.4 7-9.4 7 1.9-11.5zM14.4 23.8l-1.9-11.5-1.9 11.5-9.3-7 9.3-7-1.9 11.5L10.9 5l4.6 14.3-7.5-9.3 7.5-9.3L14.4 23.8zM26.4 23.8l-1.9-11.5-1.9 11.5-9.3-7 9.3-7-1.9 11.5L22.9 5l4.6 14.3-7.5-9.3 7.5-9.3L26.4 23.8z"/></g></svg>
-                    </div>
+            {topic.scope === 'country' && topic.country ? (
+                <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-medium">
+                    <CountryFlag countryCode={topic.country} className="w-5 h-auto rounded-sm" />
                     <span>{topic.country} Poll</span>
                 </div>
             ) : (
