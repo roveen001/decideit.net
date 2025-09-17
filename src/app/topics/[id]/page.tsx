@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import VoteChart from "@/components/VoteChart";
 import VoteComponent from "@/components/VoteComponent";
 import { format } from "date-fns";
+import CommentCard from "@/components/CommentCard";
+import { MessageSquare } from "lucide-react";
 
 type TopicPageProps = {
   params: {
@@ -62,6 +64,26 @@ export default function TopicPage({ params }: TopicPageProps) {
            <VoteChart data={topic.votes} />
         </div>
       </div>
+      
+      <section className="mt-16">
+        <div className="flex items-center gap-2 mb-6">
+            <MessageSquare className="h-6 w-6 text-primary"/>
+            <h2 className="text-2xl font-bold font-headline">
+                Comments ({topic.comments.length})
+            </h2>
+        </div>
+        <div className="space-y-6">
+          {topic.comments.length > 0 ? (
+            topic.comments.map((comment) => (
+              <CommentCard key={comment.id} comment={comment} />
+            ))
+          ) : (
+            <div className="text-center py-8 px-4 border-2 border-dashed rounded-lg">
+                <p className="text-muted-foreground">No comments yet. Be the first to share your thoughts!</p>
+            </div>
+          )}
+        </div>
+      </section>
     </div>
   );
 }

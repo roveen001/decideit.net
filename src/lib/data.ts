@@ -12,6 +12,10 @@ export const topics: Topic[] = [
       name: 'Jane Doe',
       avatarUrl: 'https://picsum.photos/seed/avatar1/40/40',
     },
+    comments: [
+      { id: 'c1', text: 'Subsidies are crucial for accelerating the transition to clean energy.', author: { name: 'EcoWarrior', avatarUrl: 'https://picsum.photos/seed/c-avatar1/40/40' }, createdAt: '2024-07-20T11:00:00Z' },
+      { id: 'c2', text: 'The market should decide, not the government.', author: { name: 'FreeMarketFan', avatarUrl: 'https://picsum.photos/seed/c-avatar2/40/40' }, createdAt: '2024-07-20T12:30:00Z' }
+    ]
   },
   {
     id: '2',
@@ -24,6 +28,9 @@ export const topics: Topic[] = [
       name: 'John Smith',
       avatarUrl: 'https://picsum.photos/seed/avatar2/40/40',
     },
+    comments: [
+       { id: 'c3', text: 'More time for family and personal projects sounds amazing!', author: { name: 'LifeLover', avatarUrl: 'https://picsum.photos/seed/c-avatar3/40/40' }, createdAt: '2024-07-22T15:00:00Z' }
+    ]
   },
   {
     id: '3',
@@ -36,6 +43,7 @@ export const topics: Topic[] = [
       name: 'Alex Ray',
       avatarUrl: 'https://picsum.photos/seed/avatar3/40/40',
     },
+    comments: []
   },
   {
     id: '4',
@@ -48,6 +56,10 @@ export const topics: Topic[] = [
       name: 'Sarah Chen',
       avatarUrl: 'https://picsum.photos/seed/avatar4/40/40',
     },
+    comments: [
+      { id: 'c4', text: 'This is a no-brainer. Power corrupts.', author: { name: 'Voter1', avatarUrl: 'https://picsum.photos/seed/c-avatar4/40/40' }, createdAt: '2024-07-19T19:00:00Z' },
+      { id: 'c5', text: 'Experience is valuable. Term limits would remove good politicians too.', author: { name: 'GovtGeek', avatarUrl: 'https://picsum.photos/seed/c-avatar5/40/40' }, createdAt: '2024-07-19T20:15:00Z' }
+    ]
   },
   {
     id: '5',
@@ -60,6 +72,7 @@ export const topics: Topic[] = [
       name: 'Mike Johnson',
       avatarUrl: 'https://picsum.photos/seed/avatar5/40/40',
     },
+    comments: []
   },
   {
     id: '6',
@@ -72,5 +85,8 @@ export const topics: Topic[] = [
       name: 'Emily White',
       avatarUrl: 'https://picsum.photos/seed/avatar6/40/40',
     },
+    comments: [
+       { id: 'c6', text: 'UBI could unlock so much human potential!', author: { name: 'Futurist', avatarUrl: 'https://picsum.photos/seed/c-avatar6/40/40' }, createdAt: '2024-07-24T09:00:00Z' }
+    ]
   },
 ];
