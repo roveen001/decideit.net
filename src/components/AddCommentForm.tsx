@@ -9,6 +9,7 @@ import { SubmitButton } from "./SubmitButton";
 import { Card, CardContent } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { User } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const commentSchema = z.object({
   comment: z.string().min(1, "Comment cannot be empty").max(500, "Comment cannot exceed 500 characters"),
@@ -21,6 +22,7 @@ type AddCommentFormProps = {
 }
 
 export default function AddCommentForm({ topicId }: AddCommentFormProps) {
+  const t = useTranslations('AddCommentForm');
   const { register, handleSubmit, formState: { errors }, reset } = useForm<CommentFormValues>({
     resolver: zodResolver(commentSchema),
   });
@@ -48,12 +50,12 @@ export default function AddCommentForm({ topicId }: AddCommentFormProps) {
             <div className="flex-1 space-y-2">
                 <Textarea
                     {...register("comment")}
-                    placeholder="Add your comment..."
+                    placeholder={t('placeholder')}
                     className="min-h-[60px]"
                 />
                 {errors.comment && <p className="text-sm text-destructive">{errors.comment.message}</p>}
                  <div className="flex justify-end">
-                    <SubmitButton buttonText="Post Comment" size="sm" />
+                    <SubmitButton buttonText={t('submit')} size="sm" />
                 </div>
             </div>
         </form>

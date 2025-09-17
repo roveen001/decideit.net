@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SubmitButton } from "./SubmitButton";
+import { useTranslations } from "next-intl";
 
 const topicSchema = z.object({
   title: z.string().min(10, "Title must be at least 10 characters long"),
@@ -20,6 +21,7 @@ const topicSchema = z.object({
 type TopicFormValues = z.infer<typeof topicSchema>;
 
 export default function SubmitTopicForm() {
+  const t = useTranslations('SubmitTopicForm');
   const { register, handleSubmit, formState: { errors }, control, reset } = useForm<TopicFormValues>({
     resolver: zodResolver(topicSchema),
   });
@@ -30,9 +32,8 @@ export default function SubmitTopicForm() {
     formData.append("description", data.description);
     formData.append("category", data.category);
 
-    // This would typically show a toast on success/error
     await submitTopic(formData);
-    alert("Topic submitted for review!");
+    alert(t('submitSuccess'));
     reset();
   };
 
@@ -41,26 +42,26 @@ export default function SubmitTopicForm() {
       <Card>
         <CardContent className="pt-6 space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="title">Topic Title</Label>
-            <Input id="title" {...register("title")} />
+            <Label htmlFor="title">{t('titleLabel')}</Label>
+            <Input id="title" {...register("title")} placeholder={t('titlePlaceholder')} />
             {errors.title && <p className="text-sm text-destructive">{errors.title.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="category">Category</Label>
+            <Label htmlFor="category">{t('categoryLabel')}</Label>
             <Controller
               name="category"
               control={control}
               render={({ field }) => (
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a category" />
+                    <SelectValue placeholder={t('categoryPlaceholder')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="Politics">Politics</SelectItem>
-                    <SelectItem value="Technology">Technology</SelectItem>
-                    <SelectItem value="Environment">Environment</SelectItem>
-                    <SelectItem value="Lifestyle">Lifestyle</SelectItem>
-                    <SelectItem value="Other">Other</SelectItem>
+                    <SelectItem value="Politics">{t('categories.politics')}</SelectItem>
+                    <SelectItem value="Technology">{t('categories.technology')}</SelectItem>
+                    <SelectItem value="Environment">{t('categories.environment')}</SelectItem>
+                    <SelectItem value="Lifestyle">{t('categories.lifestyle')}</SelectItem>
+                    <SelectItem value="Other">{t('categories.other')}</SelectItem>
                   </SelectContent>
                 </Select>
               )}
@@ -68,13 +69,13 @@ export default function SubmitTopicForm() {
             {errors.category && <p className="text-sm text-destructive">{errors.category.message}</p>}
           </div>
           <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
-            <Textarea id="description" {...register("description")} rows={5} />
+            <Label htmlFor="description">{t('descriptionLabel')}</Label>
+            <Textarea id="description" {...register("description")} rows={5} placeholder={t('descriptionPlaceholder')} />
             {errors.description && <p className="text-sm text-destructive">{errors.description.message}</p>}
           </div>
         </CardContent>
         <CardFooter>
-          <SubmitButton buttonText="Submit Topic" />
+          <SubmitButton buttonText={t('submit')} />
         </CardFooter>
       </Card>
     </form>

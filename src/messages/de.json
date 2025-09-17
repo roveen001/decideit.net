@@ -1,0 +1,118 @@
+{
+  "Header": {
+    "submitTopic": "Thema einreichen",
+    "verifyIdentity": "Identität überprüfen",
+    "appName": "CivicVoice"
+  },
+  "UserProfile": {
+    "guestUser": "Gastnutzer",
+    "guestEmail": "gast@beispiel.com",
+    "verifyIdentity": "Identität überprüfen"
+  },
+  "HomePage": {
+    "title": "CivicVoice",
+    "subtitle": "Die Stimme des Volkes, verifiziert. Nehmen Sie an wichtigen Umfragen teil, mit der Gewissheit: eine Person, eine Stimme.",
+    "exploreTopics": "Themen erkunden",
+    "getVerified": "Verifizieren lassen",
+    "trendingTopics": "Trendthemen",
+    "searchPlaceholder": "Themen suchen...",
+    "filterPlaceholder": "Nach Kategorie filtern",
+    "loadingTopics": "Themen werden geladen...",
+    "categories": {
+      "politics": "Politik",
+      "technology": "Technologie",
+      "environment": "Umwelt",
+      "lifestyle": "Lebensstil"
+    }
+  },
+  "TopicCard": {
+    "countryPoll": "{country} Umfrage",
+    "globalPoll": "Globale Umfrage"
+  },
+  "TopicPage": {
+    "countryPoll": "{country} Umfrage",
+    "globalPoll": "Globale Umfrage",
+    "castYourVote": "Stimmen Sie ab",
+    "liveResults": "Live-Ergebnisse",
+    "comments": "Kommentare ({count})",
+    "noComments": "Noch keine Kommentare. Seien Sie der Erste, der Ihre Gedanken teilt!"
+  },
+  "VoteComponent": {
+    "anonymousVote": "Ihre Stimme ist anonym und endgültig.",
+    "for": "Dafür",
+    "against": "Dagegen",
+    "thankYou": "Danke für Ihre Abstimmung!",
+    "verificationRequiredTitle": "Verifizierung erforderlich",
+    "verificationRequiredDescription": "Sie müssen ein verifizierter Benutzer sein, um abzustimmen.",
+    "votingNotAllowedTitle": "Abstimmung nicht erlaubt",
+    "votingNotAllowedDescription": "Diese Umfrage ist auf Benutzer aus {country} beschränkt."
+  },
+  "CommentCard": {
+    "reply": "Antworten",
+    "for": "Dafür",
+    "against": "Dagegen"
+  },
+  "AddCommentForm": {
+    "placeholder": "Fügen Sie Ihren Kommentar hinzu...",
+    "submit": "Kommentar posten"
+  },
+  "AddReplyForm": {
+    "placeholder": "Schreiben Sie eine Antwort...",
+    "submit": "Antwort posten",
+    "cancel": "Abbrechen"
+  },
+  "SubmitTopicPage": {
+    "title": "Neues Thema einreichen",
+    "description": "Haben Sie eine Idee für eine Umfrage? Teilen Sie sie mit der Community. Nach der Genehmigung können verifizierte Benutzer mit der Abstimmung beginnen."
+  },
+  "SubmitTopicForm": {
+    "titleLabel": "Thementitel",
+    "titlePlaceholder": "Der Titel muss mindestens 10 Zeichen lang sein",
+    "categoryLabel": "Kategorie",
+    "categoryPlaceholder": "Wählen Sie eine Kategorie",
+    "descriptionLabel": "Beschreibung",
+    "descriptionPlaceholder": "Die Beschreibung muss mindestens 20 Zeichen lang sein",
+    "submit": "Thema einreichen",
+    "submitSuccess": "Thema zur Überprüfung eingereicht!",
+    "categories": {
+      "politics": "Politik",
+      "technology": "Technologie",
+      "environment": "Umwelt",
+      "lifestyle": "Lebensstil",
+      "other": "Andere"
+    }
+  },
+  "VerifyPage": {
+    "title": "Identität überprüfen",
+    "description": "Um Fairness und Sicherheit zu gewährleisten, benötigen wir eine Identitätsprüfung. Bitte geben Sie die folgenden Informationen und ein Foto eines gültigen amtlichen Ausweises an."
+  },
+  "VerificationForm": {
+    "firstNameLabel": "Vorname",
+    "lastNameLabel": "Nachname",
+    "dobLabel": "Geburtsdatum",
+    "addressLabel": "Adresse",
+    "idLabel": "Amtlicher Ausweis",
+    "uploadPrompt": "Zum Hochladen klicken",
+    "uploadDrag": "oder per Drag & Drop",
+    "uploadHint": "PNG, JPG oder WEBP (MAX. 5MB)",
+    "submit": "Identität überprüfen",
+    "successTitle": "Erfolg!",
+    "successDescription": "Ihre Identität wurde erfolgreich überprüft!",
+    "failedTitle": "Überprüfung fehlgeschlagen",
+    "errors": {
+      "firstNameRequired": "Vorname ist erforderlich",
+      "lastNameRequired": "Nachname ist erforderlich",
+      "dobInPast": "Das Geburtsdatum muss in der Vergangenheit liegen",
+      "addressRequired": "Adresse ist erforderlich",
+      "idRequired": "Amtlicher Ausweis ist erforderlich.",
+      "idSize": "Maximale Dateigröße ist 5MB.",
+      "idType": ".jpg, .jpeg, .png und .webp Dateien werden akzeptiert."
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "Sprache ändern"
+  },
+  "General": {
+    "pleaseWait": "Bitte warten..."
+  }
+}

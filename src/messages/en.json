@@ -1,0 +1,118 @@
+{
+  "Header": {
+    "submitTopic": "Submit Topic",
+    "verifyIdentity": "Verify Identity",
+    "appName": "CivicVoice"
+  },
+  "UserProfile": {
+    "guestUser": "Guest User",
+    "guestEmail": "guest@example.com",
+    "verifyIdentity": "Verify Identity"
+  },
+  "HomePage": {
+    "title": "CivicVoice",
+    "subtitle": "The people's voice, verified. Participate in polls that matter, with the assurance of one person, one vote.",
+    "exploreTopics": "Explore Topics",
+    "getVerified": "Get Verified",
+    "trendingTopics": "Trending Topics",
+    "searchPlaceholder": "Search topics...",
+    "filterPlaceholder": "Filter by category",
+    "loadingTopics": "Loading topics...",
+    "categories": {
+      "politics": "Politics",
+      "technology": "Technology",
+      "environment": "Environment",
+      "lifestyle": "Lifestyle"
+    }
+  },
+  "TopicCard": {
+    "countryPoll": "{country} Poll",
+    "globalPoll": "Global Poll"
+  },
+  "TopicPage": {
+    "countryPoll": "{country} Poll",
+    "globalPoll": "Global Poll",
+    "castYourVote": "Cast Your Vote",
+    "liveResults": "Live Results",
+    "comments": "Comments ({count})",
+    "noComments": "No comments yet. Be the first to share your thoughts!"
+  },
+  "VoteComponent": {
+    "anonymousVote": "Your vote is anonymous and final.",
+    "for": "For",
+    "against": "Against",
+    "thankYou": "Thank you for voting!",
+    "verificationRequiredTitle": "Verification Required",
+    "verificationRequiredDescription": "You must be a verified user to vote.",
+    "votingNotAllowedTitle": "Voting Not Allowed",
+    "votingNotAllowedDescription": "This poll is restricted to users from {country}."
+  },
+  "CommentCard": {
+    "reply": "Reply",
+    "for": "For",
+    "against": "Against"
+  },
+  "AddCommentForm": {
+    "placeholder": "Add your comment...",
+    "submit": "Post Comment"
+  },
+  "AddReplyForm": {
+    "placeholder": "Write a reply...",
+    "submit": "Post Reply",
+    "cancel": "Cancel"
+  },
+  "SubmitTopicPage": {
+    "title": "Submit a New Topic",
+    "description": "Have an idea for a poll? Share it with the community. Once approved, verified users can start voting."
+  },
+  "SubmitTopicForm": {
+    "titleLabel": "Topic Title",
+    "titlePlaceholder": "Title must be at least 10 characters long",
+    "categoryLabel": "Category",
+    "categoryPlaceholder": "Select a category",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Description must be at least 20 characters long",
+    "submit": "Submit Topic",
+    "submitSuccess": "Topic submitted for review!",
+    "categories": {
+      "politics": "Politics",
+      "technology": "Technology",
+      "environment": "Environment",
+      "lifestyle": "Lifestyle",
+      "other": "Other"
+    }
+  },
+  "VerifyPage": {
+    "title": "Verify Your Identity",
+    "description": "To ensure fairness and security, we require identity verification. Please provide the following information and a photo of a valid government-issued ID."
+  },
+  "VerificationForm": {
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "dobLabel": "Date of Birth",
+    "addressLabel": "Address",
+    "idLabel": "Government ID",
+    "uploadPrompt": "Click to upload",
+    "uploadDrag": "or drag and drop",
+    "uploadHint": "PNG, JPG, or WEBP (MAX. 5MB)",
+    "submit": "Verify Identity",
+    "successTitle": "Success!",
+    "successDescription": "Your identity has been successfully verified!",
+    "failedTitle": "Verification Failed",
+    "errors": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "dobInPast": "Date of birth must be in the past",
+      "addressRequired": "Address is required",
+      "idRequired": "Government ID is required.",
+      "idSize": "Max file size is 5MB.",
+      "idType": ".jpg, .jpeg, .png and .webp files are accepted."
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "Change language"
+  },
+  "General": {
+    "pleaseWait": "Please wait..."
+  }
+}

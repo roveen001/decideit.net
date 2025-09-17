@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import type { Topic } from "@/lib/types";
 import { useUser } from "@/hooks/useUser";
 import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
+import { useTranslations } from "next-intl";
 
 
 type VoteComponentProps = {
@@ -16,6 +17,7 @@ type VoteComponentProps = {
 };
 
 export default function VoteComponent({ topic }: VoteComponentProps) {
+  const t = useTranslations('VoteComponent');
   const [voted, setVoted] = useState<'for' | 'against' | null>(null);
   const { user } = useUser();
 
@@ -32,9 +34,9 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
     return (
         <Alert>
             <Ban className="h-4 w-4" />
-            <AlertTitle>Verification Required</AlertTitle>
+            <AlertTitle>{t('verificationRequiredTitle')}</AlertTitle>
             <AlertDescription>
-                You must be a verified user to vote.
+                {t('verificationRequiredDescription')}
             </AlertDescription>
         </Alert>
     )
@@ -44,9 +46,9 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
     return (
         <Alert>
             <Ban className="h-4 w-4" />
-            <AlertTitle>Voting Not Allowed</AlertTitle>
+            <AlertTitle>{t('votingNotAllowedTitle')}</AlertTitle>
             <AlertDescription>
-                This poll is restricted to users from {topic.country}.
+                {t('votingNotAllowedDescription', {country: topic.country})}
             </AlertDescription>
         </Alert>
     )
@@ -56,7 +58,7 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
     <Card>
       <CardContent className="pt-6">
         <p className="text-sm text-muted-foreground mb-4">
-          Your vote is anonymous and final.
+          {t('anonymousVote')}
         </p>
         <div className="space-y-4">
           <Button
@@ -68,7 +70,7 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
             onClick={() => handleVote('for')}
             disabled={!!voted}
           >
-            <ThumbsUp className="mr-2 h-6 w-6" /> For
+            <ThumbsUp className="mr-2 h-6 w-6" /> {t('for')}
           </Button>
           <Button
             className={cn(
@@ -79,11 +81,11 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
             onClick={() => handleVote('against')}
             disabled={!!voted}
           >
-            <ThumbsDown className="mr-2 h-6 w-6" /> Against
+            <ThumbsDown className="mr-2 h-6 w-6" /> {t('against')}
           </Button>
         </div>
         {voted && (
-            <p className="mt-4 text-center text-sm font-medium text-primary">Thank you for voting!</p>
+            <p className="mt-4 text-center text-sm font-medium text-primary">{t('thankYou')}</p>
         )}
       </CardContent>
     </Card>

@@ -6,12 +6,14 @@ import type { Topic } from "@/lib/types";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import CountryFlag from "./CountryFlag";
+import { useTranslations } from "next-intl";
 
 type TopicCardProps = {
   topic: Topic;
 };
 
 export default function TopicCard({ topic }: TopicCardProps) {
+  const t = useTranslations('TopicCard');
   const totalVotes = topic.votes.for + topic.votes.against;
   const timeAgo = formatDistanceToNow(new Date(topic.createdAt), { addSuffix: true });
 
@@ -23,12 +25,12 @@ export default function TopicCard({ topic }: TopicCardProps) {
             {topic.scope === 'country' && topic.country ? (
                 <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-medium">
                     <CountryFlag countryCode={topic.country} />
-                    <span>{topic.country} Poll</span>
+                    <span>{t('countryPoll', {country: topic.country})}</span>
                 </div>
             ) : (
                 <div className="flex items-center gap-1 text-xs text-muted-foreground font-medium">
                     <Globe className="w-3 h-3"/>
-                    <span>Global Poll</span>
+                    <span>{t('globalPoll')}</span>
                 </div>
             )}
         </div>

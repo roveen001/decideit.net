@@ -1,0 +1,118 @@
+{
+  "Header": {
+    "submitTopic": "Soumettre un sujet",
+    "verifyIdentity": "Vérifier l'identité",
+    "appName": "CivicVoice"
+  },
+  "UserProfile": {
+    "guestUser": "Utilisateur invité",
+    "guestEmail": "invite@exemple.com",
+    "verifyIdentity": "Vérifier l'identité"
+  },
+  "HomePage": {
+    "title": "CivicVoice",
+    "subtitle": "La voix du peuple, vérifiée. Participez à des sondages qui comptent, avec l'assurance d'une personne, une voix.",
+    "exploreTopics": "Explorer les sujets",
+    "getVerified": "Faites-vous vérifier",
+    "trendingTopics": "Sujets tendance",
+    "searchPlaceholder": "Rechercher des sujets...",
+    "filterPlaceholder": "Filtrer par catégorie",
+    "loadingTopics": "Chargement des sujets...",
+    "categories": {
+      "politics": "Politique",
+      "technology": "Technologie",
+      "environment": "Environnement",
+      "lifestyle": "Style de vie"
+    }
+  },
+  "TopicCard": {
+    "countryPoll": "Sondage {country}",
+    "globalPoll": "Sondage mondial"
+  },
+  "TopicPage": {
+    "countryPoll": "Sondage {country}",
+    "globalPoll": "Sondage mondial",
+    "castYourVote": "Votez",
+    "liveResults": "Résultats en direct",
+    "comments": "Commentaires ({count})",
+    "noComments": "Aucun commentaire pour l'instant. Soyez le premier à partager votre avis !"
+  },
+  "VoteComponent": {
+    "anonymousVote": "Votre vote est anonyme et définitif.",
+    "for": "Pour",
+    "against": "Contre",
+    "thankYou": "Merci d'avoir voté !",
+    "verificationRequiredTitle": "Vérification requise",
+    "verificationRequiredDescription": "Vous devez être un utilisateur vérifié pour voter.",
+    "votingNotAllowedTitle": "Vote non autorisé",
+    "votingNotAllowedDescription": "Ce sondage est réservé aux utilisateurs de {country}."
+  },
+  "CommentCard": {
+    "reply": "Répondre",
+    "for": "Pour",
+    "against": "Contre"
+  },
+  "AddCommentForm": {
+    "placeholder": "Ajoutez votre commentaire...",
+    "submit": "Publier le commentaire"
+  },
+  "AddReplyForm": {
+    "placeholder": "Écrire une réponse...",
+    "submit": "Publier la réponse",
+    "cancel": "Annuler"
+  },
+  "SubmitTopicPage": {
+    "title": "Soumettre un nouveau sujet",
+    "description": "Vous avez une idée de sondage ? Partagez-la avec la communauté. Une fois approuvée, les utilisateurs vérifiés pourront commencer à voter."
+  },
+  "SubmitTopicForm": {
+    "titleLabel": "Titre du sujet",
+    "titlePlaceholder": "Le titre doit comporter au moins 10 caractères",
+    "categoryLabel": "Catégorie",
+    "categoryPlaceholder": "Sélectionnez une catégorie",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "La description doit comporter au moins 20 caractères",
+    "submit": "Soumettre le sujet",
+    "submitSuccess": "Sujet soumis pour examen !",
+    "categories": {
+      "politics": "Politique",
+      "technology": "Technologie",
+      "environment": "Environnement",
+      "lifestyle": "Style de vie",
+      "other": "Autre"
+    }
+  },
+  "VerifyPage": {
+    "title": "Vérifier votre identité",
+    "description": "Pour garantir l'équité et la sécurité, nous exigeons une vérification d'identité. Veuillez fournir les informations suivantes et une photo d'une pièce d'identité officielle valide."
+  },
+  "VerificationForm": {
+    "firstNameLabel": "Prénom",
+    "lastNameLabel": "Nom de famille",
+    "dobLabel": "Date de naissance",
+    "addressLabel": "Adresse",
+    "idLabel": "Pièce d'identité officielle",
+    "uploadPrompt": "Cliquez pour télécharger",
+    "uploadDrag": "ou glissez-déposez",
+    "uploadHint": "PNG, JPG ou WEBP (MAX. 5Mo)",
+    "submit": "Vérifier l'identité",
+    "successTitle": "Succès !",
+    "successDescription": "Votre identité a été vérifiée avec succès !",
+    "failedTitle": "Échec de la vérification",
+    "errors": {
+      "firstNameRequired": "Le prénom est requis",
+      "lastNameRequired": "Le nom de famille est requis",
+      "dobInPast": "La date de naissance doit être dans le passé",
+      "addressRequired": "L'adresse est requise",
+      "idRequired": "Une pièce d'identité officielle est requise.",
+      "idSize": "La taille maximale du fichier est de 5 Mo.",
+      "idType": "Les fichiers .jpg, .jpeg, .png and .webp sont acceptés."
+    }
+  },
+  "LanguageSwitcher": {
+    "label": "Changer de langue"
+  },
+  "General": {
+    "pleaseWait": "Veuillez patienter..."
+  }
+}
