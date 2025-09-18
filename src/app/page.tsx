@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import TrendingTopics from "@/components/TrendingTopics";
-import { Filter, Search, Users, Vote } from "lucide-react";
+import { Filter, Search, Users, Vote, Globe } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 import { topics } from "@/lib/data";
@@ -11,6 +11,8 @@ export default function Home() {
   const totalTopics = topics.length;
   // Placeholder for total users. In a real app, this would come from a database.
   const totalUsers = 12345;
+  const totalCountries = new Set(topics.filter(t => t.country).map(t => t.country)).size;
+
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
@@ -33,7 +35,7 @@ export default function Home() {
 
       <section className="py-12 bg-muted/20 rounded-lg">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-6">
                 <Users className="mx-auto h-10 w-10 text-primary mb-3" />
                 <h3 className="text-4xl font-bold font-headline">{totalUsers.toLocaleString()}</h3>
@@ -43,6 +45,11 @@ export default function Home() {
                 <Vote className="mx-auto h-10 w-10 text-primary mb-3" />
                 <h3 className="text-4xl font-bold font-headline">{totalTopics}</h3>
                 <p className="mt-2 text-muted-foreground">Active Topics</p>
+            </div>
+            <div className="p-6">
+                <Globe className="mx-auto h-10 w-10 text-primary mb-3" />
+                <h3 className="text-4xl font-bold font-headline">{totalCountries}</h3>
+                <p className="mt-2 text-muted-foreground">Countries Represented</p>
             </div>
           </div>
         </div>
