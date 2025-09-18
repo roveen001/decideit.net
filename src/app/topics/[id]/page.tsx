@@ -12,6 +12,7 @@ import ResultsAnalysis from "@/components/ResultsAnalysis";
 import { Separator } from "@/components/ui/separator";
 import UserAvatar from "@/components/UserAvatar";
 import Link from "next/link";
+import ShareTopic from "@/components/ShareTopic";
 
 type TopicPageProps = {
   params: {
@@ -74,7 +75,11 @@ export default function TopicPage({ params }: TopicPageProps) {
             {topic.description}
           </p>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+          <div className="mt-8">
+            <ShareTopic topic={topic} />
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold font-headline mb-4">Cast Your Vote</h2>
               <VoteComponent topic={topic} />
