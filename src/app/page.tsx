@@ -2,11 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import TrendingTopics from "@/components/TrendingTopics";
-import { Filter, Search } from "lucide-react";
+import { Filter, Search, Users, Vote } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
+import { topics } from "@/lib/data";
 
 export default function Home() {
+  const totalTopics = topics.length;
+  // Placeholder for total users. In a real app, this would come from a database.
+  const totalUsers = 12345;
+
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center py-12 md:py-20">
@@ -23,6 +28,23 @@ export default function Home() {
           <Button asChild size="lg" variant="outline">
             <Link href="/verify">Get Verified</Link>
           </Button>
+        </div>
+      </section>
+
+      <section className="py-12 bg-muted/20 rounded-lg">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div className="p-6">
+                <Users className="mx-auto h-10 w-10 text-primary mb-3" />
+                <h3 className="text-4xl font-bold font-headline">{totalUsers.toLocaleString()}</h3>
+                <p className="mt-2 text-muted-foreground">Registered Users</p>
+            </div>
+            <div className="p-6">
+                <Vote className="mx-auto h-10 w-10 text-primary mb-3" />
+                <h3 className="text-4xl font-bold font-headline">{totalTopics}</h3>
+                <p className="mt-2 text-muted-foreground">Active Topics</p>
+            </div>
+          </div>
         </div>
       </section>
 
