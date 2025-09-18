@@ -1,7 +1,16 @@
+
 "use client";
 
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import * as React from "react";
+import { Label, Pie, PieChart } from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart";
 
 type VoteChartProps = {
   data: {
@@ -25,47 +34,70 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export default function VoteChart({ data }: VoteChartProps) {
-    const chartData = [
-        { voteType: "For", votes: data.for, fill: "var(--color-for)" },
-        { voteType: "Against", votes: data.against, fill: "var(--color-against)" },
-    ];
-    const totalVotes = data.for + data.against;
+  const chartData = [
+    { name: "for", votes: data.for, fill: "var(--color-for)" },
+    { name: "against", votes: data.against, fill: "var(--color-against)" },
+  ];
+
+  const totalVotes = React.useMemo(() => {
+    return chartData.reduce((acc, curr) => acc + curr.votes, 0);
+  }, [chartData]);
+
+  const forPercentage = totalVotes > 0 ? (data.for / totalVotes) * 100 : 0;
 
   return (
-    <div className="w-full">
-        <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-            <BarChart accessibilityLayer data={chartData} layout="vertical" margin={{ left: 10, right: 10 }}>
-                <CartesianGrid horizontal={false} />
-                <YAxis
-                    dataKey="voteType"
-                    type="category"
-                    tickLine={false}
-                    axisLine={false}
-                    tickMargin={10}
-                    className="font-medium"
-                />
-                <XAxis dataKey="votes" type="number" hide />
-                <ChartTooltip
-                    cursor={false}
-                    content={<ChartTooltipContent 
-                        labelKey="votes"
-                        indicator="dot"
-                        formatter={(value, name, item) => (
-                            <div className="flex flex-col">
-                                <span>{item.payload.voteType}: {value.toLocaleString()} votes</span>
-                                <span className="text-xs text-muted-foreground">{((Number(value) / totalVotes) * 100).toFixed(1)}% of total</span>
-                            </div>
-                        )}
-                    />}
-                />
-                <Bar dataKey="votes" layout="vertical" radius={5} />
-            </BarChart>
-        </ChartContainer>
-        <div className="flex justify-between text-sm font-medium mt-2 px-4">
-            <span>{data.for.toLocaleString()} For</span>
-            <span>{data.against.toLocaleString()} Against</span>
-        </div>
-         <p className="text-center text-xs text-muted-foreground mt-2">Total Votes: {totalVotes.toLocaleString()}</p>
-    </div>
+    <ChartContainer
+      config={chartConfig}
+      className="mx-auto aspect-square max-h-[250px]"
+    >
+      <PieChart>
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent hideLabel />}
+        />
+        <Pie
+          data={chartData}
+          dataKey="votes"
+          nameKey="name"
+          innerRadius={60}
+          strokeWidth={5}
+        >
+          <Label
+            content={({ viewBox }) => {
+              if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                return (
+                  <text
+                    x={viewBox.cx}
+                    y={viewBox.cy}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                  >
+                    <tspan
+                      x={viewBox.cx}
+                      y={viewBox.cy}
+                      className="fill-foreground text-3xl font-bold"
+                    >
+                      {forPercentage.toFixed(1)}%
+                    </tspan>
+                    <tspan
+                      x={viewBox.cx}
+                      y={(viewBox.cy || 0) + 20}
+                      className="fill-muted-foreground"
+                    >
+                      For
+                    </tspan>
+                  </text>
+                );
+              }
+            }}
+          />
+        </Pie>
+        <ChartLegend
+            content={<ChartLegendContent nameKey="name" />}
+            className="-mt-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+        />
+      </PieChart>
+    </ChartContainer>
   );
 }
+
