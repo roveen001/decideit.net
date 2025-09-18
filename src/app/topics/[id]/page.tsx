@@ -11,6 +11,7 @@ import CountryFlag from "@/components/CountryFlag";
 import ResultsAnalysis from "@/components/ResultsAnalysis";
 import { Separator } from "@/components/ui/separator";
 import UserAvatar from "@/components/UserAvatar";
+import Link from "next/link";
 
 type TopicPageProps = {
   params: {
@@ -57,8 +58,10 @@ export default function TopicPage({ params }: TopicPageProps) {
             </h1>
             <div className="flex items-center space-x-4 text-muted-foreground">
               <div className="flex items-center gap-2">
-                <UserAvatar user={topic.author} className="h-8 w-8" />
-                <span className="font-medium">{topic.author.name}</span>
+                <Link href={`/users/${topic.author.id}`}>
+                  <UserAvatar user={topic.author} className="h-8 w-8" />
+                </Link>
+                <Link href={`/users/${topic.author.id}`} className="font-medium hover:underline">{topic.author.name}</Link>
               </div>
               <span>•</span>
               <time dateTime={topic.createdAt}>

@@ -5,15 +5,23 @@ import { formatDistanceToNow } from "date-fns";
 import { ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
 
 import { Card, CardContent } from "./ui/card";
-import type { Comment } from "@/lib/types";
+import type { Comment, User } from "@/lib/types";
 import AddReplyForm from "./AddReplyForm";
 import UserAvatar from "./UserAvatar";
+import Link from "next/link";
 
 type CommentCardProps = {
   comment: Comment;
   topicId: string;
   isReply?: boolean;
 };
+
+const AuthorLink = ({ user }: { user: User }) => (
+    <Link href={`/users/${user.id}`} className="flex items-center gap-2 group">
+        <UserAvatar user={user} className="h-6 w-6 border" />
+        <p className="font-semibold group-hover:text-primary">{user.name}</p>
+    </Link>
+)
 
 export default function CommentCard({ comment, topicId, isReply = false }: CommentCardProps) {
   const [showReplyForm, setShowReplyForm] = useState(false);
@@ -27,17 +35,20 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
   return (
     <div className="flex gap-4">
       {!isReply && (
-         <UserAvatar user={comment.author} className="h-10 w-10 border mt-1" />
+        <Link href={`/users/${comment.author.id}`} className="mt-1">
+         <UserAvatar user={comment.author} className="h-10 w-10 border" />
+        </Link>
       )}
       <div className="flex-1">
         <Card className={isReply ? "bg-muted/50" : "bg-card"}>
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                 {isReply && (
-                    <UserAvatar user={comment.author} className="h-6 w-6 border" />
-                )}
-                <p className="font-semibold">{comment.author.name}</p>
+                 {isReply ? (
+                    <AuthorLink user={comment.author} />
+                 ) : (
+                    <Link href={`/users/${comment.author.id}`} className="font-semibold hover:text-primary">{comment.author.name}</Link>
+                 )}
               </div>
               <p className="text-xs text-muted-foreground">{timeAgo}</p>
             </div>

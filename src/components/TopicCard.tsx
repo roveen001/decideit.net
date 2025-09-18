@@ -46,10 +46,10 @@ export default function TopicCard({ topic }: TopicCardProps) {
         </p>
       </CardContent>
       <CardFooter className="flex justify-between items-center">
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <Link href={`/users/${topic.author.id}`} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
           <UserAvatar user={topic.author} className="h-6 w-6" />
           <span>{topic.author.name}</span>
-        </div>
+        </Link>
         <div className="flex items-center gap-4 text-sm">
           <span className="flex items-center gap-1.5 text-green-600">
             <ThumbsUp className="h-4 w-4" /> {topic.votes.for}
