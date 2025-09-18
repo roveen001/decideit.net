@@ -4,4 +4,19 @@
 runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
-  maxInstances: 1
+  maxInstances: 100
+  concurrency: 100
+  cpu: 2
+  memoryMiB: 1024
+  # Define environment variables for your application.
+  # These are accessible via process.env.VARIABLE_NAME.
+  # Docs: https://firebase.google.com/docs/app-hosting/configure#environment-variables
+  environment:
+    EXAMPLE_VARIABLE: "hello-world"
+  # To use secrets, you must first create them in Google Cloud Secret Manager.
+  # Docs: https://firebase.google.com/docs/app-hosting/configure#secrets
+  secrets:
+    # This will expose the latest version of the secret 'MY_SECRET' as an
+    # environment variable 'MY_SECRET_ENV_VAR'
+    # - secret: MY_SECRET
+    #   environmentVariable: MY_SECRET_ENV_VAR
