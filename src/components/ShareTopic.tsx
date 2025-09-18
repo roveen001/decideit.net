@@ -84,7 +84,7 @@ export default function ShareTopic({ topic }: ShareTopicProps) {
                 variant="outline"
                 size="icon"
                 onClick={social.action}
-                className="text-green-600 hover:text-green-700 border-green-200 hover:bg-green-50 hover:border-green-300"
+                className="text-red-600 hover:text-red-700 border-red-200 hover:bg-red-50 hover:border-red-300"
               >
                 <social.icon className="h-4 w-4" />
               </Button>
