@@ -13,7 +13,7 @@ export default function Footer() {
           </span>
         </Link>
         <div className="text-muted-foreground text-sm mt-4">
-          &copy; 2025 decideit
+          &copy; 2025 decideit.net
         </div>
       </div>
     </footer>
