@@ -105,7 +105,7 @@ export default function Home() {
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                 </div>
-                <Button type="submit" variant="outline">Search</Button>
+                <Button type="submit" className="bg-green-600 hover:bg-green-700 text-primary-foreground">Search</Button>
             </form>
             <div className="flex items-center gap-2">
               <Filter className="h-5 w-5 text-muted-foreground" />
