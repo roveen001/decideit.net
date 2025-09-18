@@ -17,7 +17,7 @@ export const topics: Topic[] = [
       isVerified: true,
     },
     comments: [
-      { id: 'c1', text: 'Subsidies are crucial for accelerating the transition to clean energy.', author: { id: 'user-c1', name: 'EcoWarrior', avatarUrl: 'https://picsum.photos/seed/c-avatar1/40/40', isVerified: true }, createdAt: '2024-07-20T11:00:00Z', votes: { for: 42, against: 5 }, mediaUrl: 'https://picsum.photos/seed/comment1/400/200', replies: [
+      { id: 'c1', text: 'Subsidies are crucial for accelerating the transition to clean energy.', author: { id: 'user-c1', name: 'EcoWarrior', avatarUrl: 'https://picsum.photos/seed/c-avatar1/40/40', isVerified: true }, createdAt: '2024-07-20T11:00:00Z', votes: { for: 42, against: 5 }, replies: [
         { id: 'r1', text: 'I agree! We need to invest in our future.', author: { id: 'user-r1', name: 'FutureNow', avatarUrl: 'https://picsum.photos/seed/r-avatar1/40/40', isVerified: false}, createdAt: '2024-07-20T11:30:00Z', votes: { for: 15, against: 1 } }
       ]},
       { id: 'c2', text: 'The market should decide, not the government.', author: { id: 'user-c2', name: 'FreeMarketFan', avatarUrl: 'https://picsum.photos/seed/c-avatar2/40/40', isVerified: false }, createdAt: '2024-07-20T12:30:00Z', votes: { for: 18, against: 25 } }

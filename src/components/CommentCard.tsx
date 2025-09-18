@@ -5,24 +5,16 @@ import { formatDistanceToNow } from "date-fns";
 import { ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
 
 import { Card, CardContent } from "./ui/card";
-import type { Comment, User } from "@/lib/types";
+import type { Comment } from "@/lib/types";
 import AddReplyForm from "./AddReplyForm";
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
-import Image from "next/image";
 
 type CommentCardProps = {
   comment: Comment;
   topicId: string;
   isReply?: boolean;
 };
-
-const AuthorLink = ({ user }: { user: User }) => (
-    <Link href={`/users/${user.id}`} className="flex items-center gap-2 group">
-        <UserAvatar user={user} className="h-6 w-6 border" />
-        <p className="font-semibold group-hover:text-primary">{user.name}</p>
-    </Link>
-)
 
 export default function CommentCard({ comment, topicId, isReply = false }: CommentCardProps) {
   const [showReplyForm, setShowReplyForm] = useState(false);
@@ -41,12 +33,15 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
         </Link>
       )}
       <div className="flex-1">
-        <Card className={isReply ? "bg-muted/50" : "bg-card"}>
+        <Card className={isReply ? "bg-muted/50" : ""}>
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                  {isReply ? (
-                    <AuthorLink user={comment.author} />
+                    <div className="flex items-center gap-2">
+                        <UserAvatar user={comment.author} className="h-6 w-6 border" />
+                        <p className="font-semibold">{comment.author.name}</p>
+                    </div>
                  ) : (
                     <Link href={`/users/${comment.author.id}`} className="font-semibold hover:text-primary">{comment.author.name}</Link>
                  )}
@@ -54,12 +49,6 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
               <p className="text-xs text-muted-foreground">{timeAgo}</p>
             </div>
             <p className="mt-2 text-foreground/90">{comment.text}</p>
-            
-            {comment.mediaUrl && (
-                <div className="mt-4 relative aspect-video rounded-lg overflow-hidden">
-                    <Image src={comment.mediaUrl} alt="Comment media" fill style={{ objectFit: 'contain' }} />
-                </div>
-            )}
 
             <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
               <button
