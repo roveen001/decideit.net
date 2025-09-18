@@ -33,7 +33,7 @@ export default function TopicPage({ params }: TopicPageProps) {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-8 md:py-12">
-      <div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-5 lg:gap-8">
         
         {/* Main Content */}
         <div className="lg:col-span-3">
@@ -91,7 +91,7 @@ export default function TopicPage({ params }: TopicPageProps) {
         </div>
 
         {/* Comments Sidebar */}
-        <div className="lg:col-span-2 mt-12 lg:mt-0">
+        <div className="lg:col-span-2 mt-12 lg:mt-0 lg:pl-8 lg:border-l">
             <div className="sticky top-24">
                 <div className="flex items-center gap-2 mb-6">
                     <MessageSquare className="h-6 w-6 text-primary"/>
