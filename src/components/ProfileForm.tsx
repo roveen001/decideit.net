@@ -14,6 +14,7 @@ import Image from "next/image";
 import { UploadCloud, X } from "lucide-react";
 import { SubmitButton } from "./SubmitButton";
 import UserAvatar from "./UserAvatar";
+import { cn } from "@/lib/utils";
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
