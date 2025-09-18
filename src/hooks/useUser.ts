@@ -4,11 +4,12 @@
 export const useUser = () => {
     return {
         user: {
-            name: "Guest User",
-            email: "guest@example.com",
-            avatarUrl: "https://picsum.photos/seed/user-profile/40/40",
+            id: "user-4",
+            name: "Sarah Chen",
+            email: "sarah.chen@example.com",
+            avatarUrl: "https://picsum.photos/seed/avatar4/40/40",
             isVerified: true, // Change this to false to see the unverified state
-            country: "USA", // This would be determined for the logged-in user
+            country: "Canada", // This would be determined for the logged-in user
         }
     }
 }
