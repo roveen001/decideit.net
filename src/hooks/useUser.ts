@@ -16,8 +16,8 @@ const MOCK_USER: User = {
 // This is a placeholder hook to simulate fetching user data and auth state.
 // In a real application, you would fetch this from your authentication provider or backend.
 export const useUser = () => {
-    const [isSignedIn, setIsSignedIn] = useState(true);
-    const [user, setUser] = useState<User | null>(MOCK_USER);
+    const [isSignedIn, setIsSignedIn] = useState(false);
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         const storedAuthState = localStorage.getItem('isSignedIn');

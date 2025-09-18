@@ -18,7 +18,7 @@ import UserAvatar from "./UserAvatar";
 
 export default function Header() {
   const pathname = usePathname();
-  const { user, signIn, signOut, isSignedIn } = useUser();
+  const { user, signOut, isSignedIn } = useUser();
   
   const navLinks = [
     { href: "/topics/submit", label: "Submit Topic", icon: PlusCircle },
@@ -94,9 +94,11 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Button onClick={signIn}>
-              <LogIn className="mr-2 h-4 w-4" />
-              Sign In
+            <Button asChild>
+              <Link href="/login">
+                <LogIn className="mr-2 h-4 w-4" />
+                Sign In
+              </Link>
             </Button>
           )}
         </div>
