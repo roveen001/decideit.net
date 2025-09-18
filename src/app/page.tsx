@@ -1,17 +1,53 @@
+
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import TrendingTopics from "@/components/TrendingTopics";
 import { Filter, Search, Users, Vote, Globe } from "lucide-react";
 import Link from "next/link";
-import { Suspense } from "react";
+import { Suspense, useState, useMemo } from "react";
 import { topics } from "@/lib/data";
+
+export type SortOption = "trending" | "newest" | "most-voted";
 
 export default function Home() {
   const totalTopics = topics.length;
   // Placeholder for total users. In a real app, this would come from a database.
   const totalUsers = 12345;
   const totalCountries = new Set(topics.filter(t => t.country).map(t => t.country)).size;
+  
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortOption, setSortOption] = useState<SortOption>("trending");
+  const [submittedQuery, setSubmittedQuery] = useState("");
+
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmittedQuery(searchQuery);
+  }
+
+  const filteredAndSortedTopics = useMemo(() => {
+    let filtered = topics;
+
+    if (submittedQuery) {
+        filtered = topics.filter((topic) =>
+            topic.title.toLowerCase().includes(submittedQuery.toLowerCase()) ||
+            topic.description.toLowerCase().includes(submittedQuery.toLowerCase())
+        );
+    }
+    
+    switch (sortOption) {
+        case "newest":
+            return [...filtered].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        case "most-voted":
+            return [...filtered].sort((a, b) => (b.votes.for + b.votes.against) - (a.votes.for + a.votes.against));
+        case "trending":
+        default:
+            // Default "trending" is based on votes for this example
+            return [...filtered].sort((a, b) => (b.votes.for + b.votes.against) - (a.votes.for + a.votes.against));
+    }
+  }, [sortOption, submittedQuery]);
 
 
   return (
@@ -57,23 +93,30 @@ export default function Home() {
 
       <section id="trending" className="py-12 md:py-16">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
-          <h2 className="text-3xl font-bold font-headline">Trending Topics</h2>
+          <h2 className="text-3xl font-bold font-headline">Topics</h2>
           <div className="flex flex-col md:flex-row gap-2 w-full md:w-auto">
-            <div className="relative w-full md:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-              <Input placeholder="Search topics..." className="pl-10" />
-            </div>
+            <form onSubmit={handleSearchSubmit} className="flex gap-2">
+                <div className="relative w-full md:w-64">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Input
+                        placeholder="Search topics..."
+                        className="pl-10"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </div>
+                <Button type="submit" variant="outline">Search</Button>
+            </form>
             <div className="flex items-center gap-2">
               <Filter className="h-5 w-5 text-muted-foreground" />
-              <Select>
+              <Select onValueChange={(value: SortOption) => setSortOption(value)} defaultValue={sortOption}>
                 <SelectTrigger className="w-full md:w-[180px]">
-                  <SelectValue placeholder="Filter by category" />
+                  <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="politics">Politics</SelectItem>
-                  <SelectItem value="technology">Technology</SelectItem>
-                  <SelectItem value="environment">Environment</SelectItem>
-                  <SelectItem value="lifestyle">Lifestyle</SelectItem>
+                  <SelectItem value="trending">Trending</SelectItem>
+                  <SelectItem value="newest">Newest</SelectItem>
+                  <SelectItem value="most-voted">Most Voted</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -81,7 +124,7 @@ export default function Home() {
         </div>
         
         <Suspense fallback={<p>Loading topics...</p>}>
-          <TrendingTopics />
+          <TrendingTopics topics={filteredAndSortedTopics} />
         </Suspense>
       </section>
     </div>
