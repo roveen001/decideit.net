@@ -1,33 +1,12 @@
 # Settings to manage and configure a Firebase App Hosting backend.
 # https://firebase.google.com/docs/app-hosting/configure
 
-# runConfig settings are applicable to all regions.
 runConfig:
-  # concurrency specifies the number of concurrent requests your application can handle.
-  # If the number of requests exceeds this value, new instances will be started.
-  concurrency: 80
-  # maxInstances specifies the maximum number of instances that can be created for your application.
-  # The default value is 100.
-  maxInstances: 100
-  # minInstances specifies the minimum number of instances to be kept running at all times.
-  # The default value is 0.
-  minInstances: 0
-  # cpu specifies the amount of CPU to allocate to each instance, in CPU units.
-  # 1 CPU unit corresponds to 1 vCPU.
-  cpu: 1
-  # memoryMiB specifies the amount of memory to allocate to each instance, in MiB.
-  memoryMiB: 512
-
-# environment defines environment variables for your application.
-# These are accessible via process.env.VARIABLE_NAME.
-# Docs: https://firebase.google.com/docs/app-hosting/configure#environment-variables
-environment:
-  EXAMPLE_VARIABLE: "hello-world"
-
-# To use secrets, you must first create them in Google Cloud Secret Manager.
-# Docs: https://firebase.google.com/docs/app-hosting/configure#secrets
+  # Increase this value if you'd like to automatically spin up
+  # more instances in response to increased traffic.
+  maxInstances: 1
 secrets:
-  # This will expose the latest version of the secret 'MY_SECRET' as an
-  # environment variable 'MY_SECRET_ENV_VAR'
-  - secret: MY_SECRET
-    environmentVariable: MY_SECRET_ENV_VAR
+  - secret: API_KEY
+    # availability:
+    #   - build
+    #   - runtime
