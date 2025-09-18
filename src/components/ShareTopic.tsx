@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -63,7 +64,7 @@ export default function ShareTopic({ topic }: ShareTopicProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline">
+        <Button className="bg-green-600 hover:bg-green-700 text-primary-foreground">
           <Share2 className="mr-2 h-4 w-4" />
           Share this Topic
         </Button>
