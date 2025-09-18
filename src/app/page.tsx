@@ -11,7 +11,7 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center py-12 md:py-20">
         <h1 className="text-4xl md:text-6xl font-bold text-primary font-headline tracking-tight">
-          CivicVoice
+          DecideIt
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-foreground/80">
           The people's voice, verified. Participate in polls that matter, with the assurance of one person, one vote.

@@ -4,7 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 
 export const metadata: Metadata = {
-  title: 'CivicVoice',
+  title: 'DecideIt',
   description: "The people's voice, verified.",
 };
 
