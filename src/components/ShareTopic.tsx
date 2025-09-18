@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import { Share2, Twitter, Facebook, Linkedin, Copy } from "lucide-react";
+import { Share2, Twitter, Facebook, Linkedin, Copy, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Topic } from "@/lib/types";
 
@@ -21,24 +21,6 @@ export default function ShareTopic({ topic }: ShareTopicProps) {
 
   const shareText = `Vote on this topic: "${topic.title}" on decideit.`;
 
-  const socialLinks = [
-    {
-      name: "X",
-      url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareText)}`,
-      icon: Twitter,
-    },
-    {
-      name: "Facebook",
-      url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-      icon: Facebook,
-    },
-    {
-      name: "LinkedIn",
-      url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(topic.title)}&summary=${encodeURIComponent(shareText)}`,
-      icon: Linkedin,
-    },
-  ];
-
   const copyToClipboard = () => {
     navigator.clipboard.writeText(url);
     toast({
@@ -46,6 +28,37 @@ export default function ShareTopic({ topic }: ShareTopicProps) {
       description: "You can now share the link.",
     });
   };
+  
+  const handleInstagramShare = () => {
+    navigator.clipboard.writeText(url);
+    toast({
+        title: "Link Copied!",
+        description: "Paste the link in your Instagram story or bio.",
+    });
+  }
+
+  const socialLinks = [
+    {
+      name: "X",
+      icon: Twitter,
+      action: () => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareText)}`, '_blank'),
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      action: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank'),
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      action: () => window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(topic.title)}&summary=${encodeURIComponent(shareText)}`, '_blank'),
+    },
+    {
+        name: "Instagram",
+        icon: Instagram,
+        action: handleInstagramShare
+    }
+  ];
 
   return (
     <Popover>
@@ -65,16 +78,14 @@ export default function ShareTopic({ topic }: ShareTopicProps) {
           </div>
           <div className="flex items-center space-x-2">
             {socialLinks.map((social) => (
-              <a
+              <Button
                 key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                variant="outline"
+                size="icon"
+                onClick={social.action}
               >
-                <Button variant="outline" size="icon">
-                  <social.icon className="h-4 w-4" />
-                </Button>
-              </a>
+                <social.icon className="h-4 w-4" />
+              </Button>
             ))}
           </div>
           <div className="flex items-center space-x-2">
