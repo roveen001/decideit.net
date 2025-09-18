@@ -11,13 +11,13 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8 md:py-12">
       <section className="text-center py-12 md:py-20">
         <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight">
-          <span className="text-primary">Decide</span><span className="text-green-600">it</span>
+          <span className="text-red-600">Decide</span><span className="text-green-600">it</span>
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-foreground/80">
           The people's voice, verified. Participate in polls that matter, with the assurance of one person, one vote.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+          <Button asChild size="lg">
             <Link href="#trending">Explore Topics</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
