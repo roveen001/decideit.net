@@ -49,7 +49,7 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          {isSignedIn ? (
+          {isSignedIn && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full">
@@ -93,13 +93,6 @@ export default function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : (
-            <Button asChild>
-              <Link href="/login">
-                <LogIn className="mr-2 h-4 w-4" />
-                Sign In
-              </Link>
-            </Button>
           )}
         </div>
       </div>
