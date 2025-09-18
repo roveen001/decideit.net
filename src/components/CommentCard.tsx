@@ -34,7 +34,7 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
         </Avatar>
       )}
       <div className="flex-1">
-        <Card className={isReply ? "bg-muted/50" : ""}>
+        <Card className={isReply ? "bg-muted/50" : "bg-card"}>
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -52,13 +52,13 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
             <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
               <button
                 onClick={() => handleVote('for')}
-                className="flex items-center gap-1 hover:text-accent transition-colors"
+                className="flex items-center gap-1 hover:text-green-600 transition-colors"
               >
                 <ThumbsUp className="h-4 w-4" /> {comment.votes.for}
               </button>
               <button
                 onClick={() => handleVote('against')}
-                className="flex items-center gap-1 hover:text-destructive transition-colors"
+                className="flex items-center gap-1 hover:text-red-600 transition-colors"
               >
                 <ThumbsDown className="h-4 w-4" /> {comment.votes.against}
               </button>
