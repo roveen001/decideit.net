@@ -5,11 +5,12 @@ import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
 
 type SubmitButtonProps = {
-  buttonText: string;
+  buttonText?: string;
+  children?: React.ReactNode;
 } & React.ComponentProps<typeof Button>;
 
 
-export function SubmitButton({ buttonText, ...props }: SubmitButtonProps) {
+export function SubmitButton({ buttonText, children, ...props }: SubmitButtonProps) {
   const { pending } = useFormStatus();
 
   return (
@@ -20,7 +21,7 @@ export function SubmitButton({ buttonText, ...props }: SubmitButtonProps) {
           Please wait...
         </>
       ) : (
-        buttonText
+        children || buttonText
       )}
     </Button>
   );

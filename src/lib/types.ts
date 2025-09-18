@@ -18,6 +18,7 @@ export type Comment = {
   author: User;
   createdAt: string;
   votes: Vote;
+  mediaUrl?: string;
   replies?: Comment[];
 };
 

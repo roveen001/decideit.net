@@ -88,8 +88,9 @@ export async function castVote(topicId: string, voteType: 'for' | 'against') {
 export async function addComment(formData: FormData) {
     const comment = formData.get("comment");
     const topicId = formData.get("topicId");
+    const mediaUrl = formData.get("mediaUrl");
     // In a real app, you would save the comment to your database.
-    console.log(`Comment added to topic ${topicId}: ${comment}`);
+    console.log(`Comment added to topic ${topicId}: ${comment} with media ${mediaUrl}`);
     // You would also revalidate the path to show the new comment
     // revalidatePath(`/topics/${topicId}`);
 }
@@ -99,8 +100,9 @@ export async function addReply(formData: FormData) {
     const reply = formData.get("reply");
     const topicId = formData.get("topicId");
     const parentCommentId = formData.get("parentCommentId");
+    const mediaUrl = formData.get("mediaUrl");
     // In a real app, you would save the reply to your database.
-    console.log(`Reply added to comment ${parentCommentId} on topic ${topicId}: ${reply}`);
+    console.log(`Reply added to comment ${parentCommentId} on topic ${topicId}: ${reply} with media ${mediaUrl}`);
     // You would also revalidate the path to show the new reply
     // revalidatePath(`/topics/${topicId}`);
 }

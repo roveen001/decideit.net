@@ -9,6 +9,7 @@ import type { Comment, User } from "@/lib/types";
 import AddReplyForm from "./AddReplyForm";
 import UserAvatar from "./UserAvatar";
 import Link from "next/link";
+import Image from "next/image";
 
 type CommentCardProps = {
   comment: Comment;
@@ -53,6 +54,13 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
               <p className="text-xs text-muted-foreground">{timeAgo}</p>
             </div>
             <p className="mt-2 text-foreground/90">{comment.text}</p>
+            
+            {comment.mediaUrl && (
+                <div className="mt-4 relative aspect-video rounded-lg overflow-hidden">
+                    <Image src={comment.mediaUrl} alt="Comment media" fill style={{ objectFit: 'contain' }} />
+                </div>
+            )}
+
             <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
               <button
                 onClick={() => handleVote('for')}
