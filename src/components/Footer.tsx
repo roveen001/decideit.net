@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t mt-auto">
+    <footer className="mt-auto border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto py-8 text-center">
         <Link href="/" className="flex items-center justify-center space-x-2 md:space-x-4 group" aria-label="Go to homepage">
           <Vote className="h-20 w-20 md:h-24 md:w-24 text-primary/30 group-hover:text-primary/50 transition-colors" />
