@@ -25,7 +25,7 @@ const chartConfig = {
   },
   for: {
     label: "For",
-    color: "hsl(142.1 76.2% 36.3%)",
+    color: "hsl(120 76.2% 36.3%)",
   },
   against: {
     label: "Against",
