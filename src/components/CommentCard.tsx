@@ -52,13 +52,13 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
             <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
               <button
                 onClick={() => handleVote('for')}
-                className="flex items-center gap-1 hover:text-green-600 transition-colors"
+                className="flex items-center gap-1 hover:text-accent transition-colors"
               >
                 <ThumbsUp className="h-4 w-4" /> {comment.votes.for}
               </button>
               <button
                 onClick={() => handleVote('against')}
-                className="flex items-center gap-1 hover:text-red-600 transition-colors"
+                className="flex items-center gap-1 hover:text-destructive transition-colors"
               >
                 <ThumbsDown className="h-4 w-4" /> {comment.votes.against}
               </button>
