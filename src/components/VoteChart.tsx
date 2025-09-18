@@ -16,11 +16,11 @@ const chartConfig = {
   },
   for: {
     label: "For",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(142.1 76.2% 36.3%)",
   },
   against: {
     label: "Against",
-    color: "hsl(var(--chart-2))",
+    color: "hsl(0 84.2% 60.2%)",
   },
 } satisfies ChartConfig;
 
