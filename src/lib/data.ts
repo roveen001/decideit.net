@@ -20,7 +20,8 @@ export const topics: Topic[] = [
         { id: 'r1', text: 'I agree! We need to invest in our future.', author: { id: 'user-r1', name: 'FutureNow', avatarUrl: 'https://picsum.photos/seed/r-avatar1/40/40'}, createdAt: '2024-07-20T11:30:00Z', votes: { for: 15, against: 1 } }
       ]},
       { id: 'c2', text: 'The market should decide, not the government.', author: { id: 'user-c2', name: 'FreeMarketFan', avatarUrl: 'https://picsum.photos/seed/c-avatar2/40/40' }, createdAt: '2024-07-20T12:30:00Z', votes: { for: 18, against: 25 } }
-    ]
+    ],
+    status: 'Approved',
   },
   {
     id: '2',
@@ -37,7 +38,8 @@ export const topics: Topic[] = [
     },
     comments: [
        { id: 'c3', text: 'More time for family and personal projects sounds amazing!', author: { id: 'user-c3', name: 'LifeLover', avatarUrl: 'https://picsum.photos/seed/c-avatar3/40/40' }, createdAt: '2024-07-22T15:00:00Z', votes: { for: 88, against: 3 } }
-    ]
+    ],
+    status: 'Approved',
   },
   {
     id: '3',
@@ -52,7 +54,8 @@ export const topics: Topic[] = [
       name: 'Alex Ray',
       avatarUrl: 'https://picsum.photos/seed/avatar3/40/40',
     },
-    comments: []
+    comments: [],
+    status: 'Approved',
   },
   {
     id: '4',
@@ -71,7 +74,8 @@ export const topics: Topic[] = [
     comments: [
       { id: 'c4', text: 'This is a no-brainer. Power corrupts.', author: { id: 'user-c4', name: 'Voter1', avatarUrl: 'https://picsum.photos/seed/c-avatar4/40/40' }, createdAt: '2024-07-19T19:00:00Z', votes: { for: 152, against: 12 } },
       { id: 'c5', text: 'Experience is valuable. Term limits would remove good politicians too.', author: { id: 'user-c5', name: 'GovtGeek', avatarUrl: 'https://picsum.photos/seed/c-avatar5/40/40' }, createdAt: '2024-07-19T20:15:00Z', votes: { for: 67, against: 98 } }
-    ]
+    ],
+    status: 'Approved',
   },
   {
     id: '5',
@@ -86,7 +90,8 @@ export const topics: Topic[] = [
       name: 'Mike Johnson',
       avatarUrl: 'https://picsum.photos/seed/avatar5/40/40',
     },
-    comments: []
+    comments: [],
+    status: 'Approved',
   },
   {
     id: '6',
@@ -104,6 +109,23 @@ export const topics: Topic[] = [
     },
     comments: [
        { id: 'c6', text: 'UBI could unlock so much human potential!', author: { id: 'user-c6', name: 'Futurist', avatarUrl: 'https://picsum.photos/seed/c-avatar6/40/40' }, createdAt: '2024-07-24T09:00:00Z', votes: { for: 120, against: 45 } }
-    ]
+    ],
+    status: 'Approved',
+  },
+  {
+    id: '7',
+    title: 'Exploring the potential of vertical farming in urban areas.',
+    description: 'A new topic submitted by our user Sarah Chen, currently pending review.',
+    category: 'Technology',
+    scope: 'global',
+    votes: { for: 0, against: 0 },
+    createdAt: '2024-07-25T15:00:00Z',
+    author: {
+      id: 'user-4',
+      name: 'Sarah Chen',
+      avatarUrl: 'https://picsum.photos/seed/avatar4/40/40',
+    },
+    comments: [],
+    status: 'Pending',
   },
 ];

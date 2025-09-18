@@ -29,4 +29,5 @@ export interface Topic {
   createdAt: string; // Using string for simplicity, can be Date object
   author: User;
   comments: Comment[];
+  status: 'Approved' | 'Pending' | 'Rejected';
 }

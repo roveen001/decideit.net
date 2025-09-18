@@ -5,6 +5,9 @@ import {
   MessageSquare,
   Edit,
   Trash2,
+  CheckCircle2,
+  XCircle,
+  Clock,
 } from "lucide-react";
 import {
   Card,
@@ -18,20 +21,46 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
+import { cn } from "@/lib/utils";
 
 type MyTopicCardProps = {
   topic: Topic;
 };
 
 export default function MyTopicCard({ topic }: MyTopicCardProps) {
+  const statusConfig = {
+    Approved: {
+      label: "Approved",
+      icon: CheckCircle2,
+      className: "bg-green-100 text-green-800",
+    },
+    Pending: {
+      label: "Pending",
+      icon: Clock,
+      className: "bg-amber-100 text-amber-800",
+    },
+    Rejected: {
+      label: "Rejected",
+      icon: XCircle,
+      className: "bg-red-100 text-red-800",
+    },
+  };
+  const currentStatus = statusConfig[topic.status];
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
-          <Link href={`/topics/${topic.id}`} className="hover:text-primary transition-colors">
-            {topic.title}
-          </Link>
-        </CardTitle>
+        <div className="flex justify-between items-start">
+          <CardTitle>
+            <Link href={`/topics/${topic.id}`} className="hover:text-primary transition-colors">
+              {topic.title}
+            </Link>
+          </CardTitle>
+          <Badge className={cn("flex items-center gap-1.5", currentStatus.className)}>
+            <currentStatus.icon className="h-4 w-4" />
+            <span>{currentStatus.label}</span>
+          </Badge>
+        </div>
         <CardDescription>
           Posted on {new Date(topic.createdAt).toLocaleDateString()}
         </CardDescription>
@@ -56,7 +85,7 @@ export default function MyTopicCard({ topic }: MyTopicCardProps) {
           </span>
         </div>
         <div className="flex items-center gap-2 self-end sm:self-center">
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" disabled={topic.status !== 'Approved'}>
             <Edit className="mr-2 h-4 w-4" />
             Edit
           </Button>
