@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { FileCheck2, PlusCircle, ListCollapse, Vote } from "lucide-react";
+import { FileCheck2, PlusCircle, ListCollapse, Vote, User as UserIcon, LogOut } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -66,6 +66,12 @@ export default function Header() {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
                <DropdownMenuItem>
+                <Link href="/profile" className="flex items-center w-full">
+                  <UserIcon className="mr-2 h-4 w-4" />
+                  <span>My Profile</span>
+                </Link>
+              </DropdownMenuItem>
+               <DropdownMenuItem>
                 <Link href="/my-topics" className="flex items-center w-full">
                   <ListCollapse className="mr-2 h-4 w-4" />
                   <span>My Topics</span>
@@ -76,6 +82,13 @@ export default function Header() {
                   <FileCheck2 className="mr-2 h-4 w-4" />
                   <span>Verify Identity</span>
                 </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <div className="flex items-center w-full cursor-pointer">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Log Out</span>
+                </div>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
