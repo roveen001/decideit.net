@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
-import { ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
+import { Heart, X, MessageSquare } from "lucide-react";
 
 import { Card, CardContent } from "./ui/card";
 import type { Comment } from "@/lib/types";
@@ -53,15 +53,15 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
             <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
               <button
                 onClick={() => handleVote('for')}
-                className="flex items-center gap-1 hover:text-green-600 transition-colors"
+                className="flex items-center gap-1 hover:text-red-600 transition-colors"
               >
-                <ThumbsUp className="h-4 w-4" /> {comment.votes.for}
+                <Heart className="h-4 w-4" /> {comment.votes.for}
               </button>
               <button
                 onClick={() => handleVote('against')}
-                className="flex items-center gap-1 hover:text-red-600 transition-colors"
+                className="flex items-center gap-1 hover:text-blue-600 transition-colors"
               >
-                <ThumbsDown className="h-4 w-4" /> {comment.votes.against}
+                <X className="h-4 w-4" /> {comment.votes.against}
               </button>
               {!isReply && (
                 <button

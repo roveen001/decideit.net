@@ -2,7 +2,7 @@
 
 import { castVote } from "@/lib/actions";
 import { Button } from "./ui/button";
-import { ThumbsDown, ThumbsUp, Ban } from "lucide-react";
+import { Heart, X, Ban } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -68,7 +68,7 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
             onClick={() => handleVote('for')}
             disabled={!!voted}
           >
-            <ThumbsUp className="mr-2 h-6 w-6" /> For
+            <Heart className="mr-2 h-6 w-6" /> For
           </Button>
           <Button
             className={cn(
@@ -79,7 +79,7 @@ export default function VoteComponent({ topic }: VoteComponentProps) {
             onClick={() => handleVote('against')}
             disabled={!!voted}
           >
-            <ThumbsDown className="mr-2 h-6 w-6" /> Against
+            <X className="mr-2 h-6 w-6" /> Against
           </Button>
         </div>
         {voted && (

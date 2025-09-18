@@ -1,6 +1,6 @@
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { ThumbsDown, ThumbsUp, MessageSquare, Globe } from "lucide-react";
+import { X, Heart, MessageSquare, Globe } from "lucide-react";
 import type { Topic } from "@/lib/types";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
@@ -52,10 +52,10 @@ export default function TopicCard({ topic }: TopicCardProps) {
         </Link>
         <div className="flex items-center gap-4 text-sm">
           <span className="flex items-center gap-1.5 text-green-600">
-            <ThumbsUp className="h-4 w-4" /> {topic.votes.for}
+            <Heart className="h-4 w-4" /> {topic.votes.for}
           </span>
           <span className="flex items-center gap-1.5 text-red-600">
-            <ThumbsDown className="h-4 w-4" /> {topic.votes.against}
+            <X className="h-4 w-4" /> {topic.votes.against}
           </span>
           <span className="flex items-center gap-1.5 text-muted-foreground">
              <MessageSquare className="h-4 w-4" /> {topic.comments.length}

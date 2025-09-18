@@ -1,7 +1,7 @@
 import type { Topic } from "@/lib/types";
 import {
-  ThumbsUp,
-  ThumbsDown,
+  Heart,
+  X,
   MessageSquare,
   Edit,
   Trash2,
@@ -74,10 +74,10 @@ export default function MyTopicCard({ topic }: MyTopicCardProps) {
       <CardFooter className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex items-center gap-6 text-sm">
           <span className="flex items-center gap-1.5 text-green-600 font-medium">
-            <ThumbsUp className="h-4 w-4" /> {topic.votes.for} Likes
+            <Heart className="h-4 w-4" /> {topic.votes.for} Loves
           </span>
           <span className="flex items-center gap-1.5 text-red-600 font-medium">
-            <ThumbsDown className="h-4 w-4" /> {topic.votes.against} Dislikes
+            <X className="h-4 w-4" /> {topic.votes.against}
           </span>
           <span className="flex items-center gap-1.5 text-muted-foreground font-medium">
             <MessageSquare className="h-4 w-4" /> {topic.comments.length}{" "}
