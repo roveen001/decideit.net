@@ -55,7 +55,7 @@ export default function Home() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(to_bottom,white_10%,transparent_50%)]"></div>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="grid grid-cols-4 gap-x-32 gap-y-16 text-5xl font-bold text-slate-200/50 select-none -rotate-12 scale-150">
+          <div className="grid grid-cols-4 gap-x-32 gap-y-16 text-5xl font-bold text-slate-200/50 select-none scale-150">
             {Array.from({ length: 40 }).map((_, i) => (
               <div key={i} className="opacity-20">
                 <span className="text-destructive/30">decide</span><span className="text-green-600/30">it</span>
