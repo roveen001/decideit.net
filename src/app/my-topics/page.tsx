@@ -1,10 +1,36 @@
+"use client";
+
 import MyTopicCard from "@/components/MyTopicCard";
 import { topics } from "@/lib/data";
 import { useUser } from "@/hooks/useUser";
 import { ListCollapse } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function MyTopicsPage() {
-  const { user } = useUser();
+  const { user, isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isSignedIn) {
+      router.push('/');
+    }
+  }, [isSignedIn, router]);
+
+  if (!isSignedIn) {
+    return (
+      <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12 text-center">
+        <h1 className="text-2xl font-bold">Please sign in</h1>
+        <p className="text-muted-foreground mt-2">You need to be signed in to view your topics.</p>
+         <Button asChild className="mt-4">
+            <Link href="/">Go to Homepage</Link>
+        </Button>
+      </div>
+    );
+  }
+  
   const userTopics = topics.filter((topic) => topic.author.id === user?.id);
 
   return (
