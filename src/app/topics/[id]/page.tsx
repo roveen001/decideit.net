@@ -9,6 +9,7 @@ import CommentCard from "@/components/CommentCard";
 import { MessageSquare, Globe } from "lucide-react";
 import AddCommentForm from "@/components/AddCommentForm";
 import CountryFlag from "@/components/CountryFlag";
+import ResultsAnalysis from "@/components/ResultsAnalysis";
 
 type TopicPageProps = {
   params: {
@@ -79,6 +80,10 @@ export default function TopicPage({ params }: TopicPageProps) {
            <VoteChart data={topic.votes} />
         </div>
       </div>
+
+      <section className="mt-16">
+        <ResultsAnalysis topic={topic} />
+      </section>
       
       <section className="mt-16">
         <div className="flex items-center gap-2 mb-6">
