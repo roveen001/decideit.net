@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -40,7 +40,7 @@ type VerificationFormValues = z.infer<typeof verificationSchema>;
 
 
 export default function VerificationForm() {
-  const [initialState, formAction] = useFormState(handleVerification, {
+  const [initialState, formAction] = useActionState(handleVerification, {
     message: "",
     success: false,
   });
