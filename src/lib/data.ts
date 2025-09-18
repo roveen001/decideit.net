@@ -14,12 +14,13 @@ export const topics: Topic[] = [
       id: 'user-1',
       name: 'Jane Doe',
       avatarUrl: 'https://picsum.photos/seed/avatar1/40/40',
+      isVerified: true,
     },
     comments: [
-      { id: 'c1', text: 'Subsidies are crucial for accelerating the transition to clean energy.', author: { id: 'user-c1', name: 'EcoWarrior', avatarUrl: 'https://picsum.photos/seed/c-avatar1/40/40' }, createdAt: '2024-07-20T11:00:00Z', votes: { for: 42, against: 5 }, replies: [
-        { id: 'r1', text: 'I agree! We need to invest in our future.', author: { id: 'user-r1', name: 'FutureNow', avatarUrl: 'https://picsum.photos/seed/r-avatar1/40/40'}, createdAt: '2024-07-20T11:30:00Z', votes: { for: 15, against: 1 } }
+      { id: 'c1', text: 'Subsidies are crucial for accelerating the transition to clean energy.', author: { id: 'user-c1', name: 'EcoWarrior', avatarUrl: 'https://picsum.photos/seed/c-avatar1/40/40', isVerified: true }, createdAt: '2024-07-20T11:00:00Z', votes: { for: 42, against: 5 }, replies: [
+        { id: 'r1', text: 'I agree! We need to invest in our future.', author: { id: 'user-r1', name: 'FutureNow', avatarUrl: 'https://picsum.photos/seed/r-avatar1/40/40', isVerified: false}, createdAt: '2024-07-20T11:30:00Z', votes: { for: 15, against: 1 } }
       ]},
-      { id: 'c2', text: 'The market should decide, not the government.', author: { id: 'user-c2', name: 'FreeMarketFan', avatarUrl: 'https://picsum.photos/seed/c-avatar2/40/40' }, createdAt: '2024-07-20T12:30:00Z', votes: { for: 18, against: 25 } }
+      { id: 'c2', text: 'The market should decide, not the government.', author: { id: 'user-c2', name: 'FreeMarketFan', avatarUrl: 'https://picsum.photos/seed/c-avatar2/40/40', isVerified: false }, createdAt: '2024-07-20T12:30:00Z', votes: { for: 18, against: 25 } }
     ],
     status: 'Approved',
   },
@@ -35,9 +36,10 @@ export const topics: Topic[] = [
       id: 'user-2',
       name: 'John Smith',
       avatarUrl: 'https://picsum.photos/seed/avatar2/40/40',
+      isVerified: false,
     },
     comments: [
-       { id: 'c3', text: 'More time for family and personal projects sounds amazing!', author: { id: 'user-c3', name: 'LifeLover', avatarUrl: 'https://picsum.photos/seed/c-avatar3/40/40' }, createdAt: '2024-07-22T15:00:00Z', votes: { for: 88, against: 3 } }
+       { id: 'c3', text: 'More time for family and personal projects sounds amazing!', author: { id: 'user-c3', name: 'LifeLover', avatarUrl: 'https://picsum.photos/seed/c-avatar3/40/40', isVerified: true }, createdAt: '2024-07-22T15:00:00Z', votes: { for: 88, against: 3 } }
     ],
     status: 'Approved',
   },
@@ -53,6 +55,7 @@ export const topics: Topic[] = [
       id: 'user-3',
       name: 'Alex Ray',
       avatarUrl: 'https://picsum.photos/seed/avatar3/40/40',
+      isVerified: true,
     },
     comments: [],
     status: 'Approved',
@@ -70,10 +73,11 @@ export const topics: Topic[] = [
       id: 'user-4',
       name: 'Sarah Chen',
       avatarUrl: 'https://picsum.photos/seed/avatar4/40/40',
+      isVerified: true,
     },
     comments: [
-      { id: 'c4', text: 'This is a no-brainer. Power corrupts.', author: { id: 'user-c4', name: 'Voter1', avatarUrl: 'https://picsum.photos/seed/c-avatar4/40/40' }, createdAt: '2024-07-19T19:00:00Z', votes: { for: 152, against: 12 } },
-      { id: 'c5', text: 'Experience is valuable. Term limits would remove good politicians too.', author: { id: 'user-c5', name: 'GovtGeek', avatarUrl: 'https://picsum.photos/seed/c-avatar5/40/40' }, createdAt: '2024-07-19T20:15:00Z', votes: { for: 67, against: 98 } }
+      { id: 'c4', text: 'This is a no-brainer. Power corrupts.', author: { id: 'user-c4', name: 'Voter1', avatarUrl: 'https://picsum.photos/seed/c-avatar4/40/40', isVerified: true }, createdAt: '2024-07-19T19:00:00Z', votes: { for: 152, against: 12 } },
+      { id: 'c5', text: 'Experience is valuable. Term limits would remove good politicians too.', author: { id: 'user-c5', name: 'GovtGeek', avatarUrl: 'https://picsum.photos/seed/c-avatar5/40/40', isVerified: false }, createdAt: '2024-07-19T20:15:00Z', votes: { for: 67, against: 98 } }
     ],
     status: 'Approved',
   },
@@ -89,6 +93,7 @@ export const topics: Topic[] = [
       id: 'user-5',
       name: 'Mike Johnson',
       avatarUrl: 'https://picsum.photos/seed/avatar5/40/40',
+      isVerified: false,
     },
     comments: [],
     status: 'Approved',
@@ -106,9 +111,10 @@ export const topics: Topic[] = [
       id: 'user-6',
       name: 'Emily White',
       avatarUrl: 'https://picsum.photos/seed/avatar6/40/40',
+      isVerified: true,
     },
     comments: [
-       { id: 'c6', text: 'UBI could unlock so much human potential!', author: { id: 'user-c6', name: 'Futurist', avatarUrl: 'https://picsum.photos/seed/c-avatar6/40/40' }, createdAt: '2024-07-24T09:00:00Z', votes: { for: 120, against: 45 } }
+       { id: 'c6', text: 'UBI could unlock so much human potential!', author: { id: 'user-c6', name: 'Futurist', avatarUrl: 'https://picsum.photos/seed/c-avatar6/40/40', isVerified: true }, createdAt: '2024-07-24T09:00:00Z', votes: { for: 120, against: 45 } }
     ],
     status: 'Approved',
   },
@@ -124,6 +130,7 @@ export const topics: Topic[] = [
       id: 'user-4',
       name: 'Sarah Chen',
       avatarUrl: 'https://picsum.photos/seed/avatar4/40/40',
+      isVerified: true,
     },
     comments: [],
     status: 'Pending',

@@ -1,6 +1,5 @@
 import { topics } from "@/lib/data";
 import { notFound } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import VoteChart from "@/components/VoteChart";
 import VoteComponent from "@/components/VoteComponent";
@@ -11,6 +10,7 @@ import AddCommentForm from "@/components/AddCommentForm";
 import CountryFlag from "@/components/CountryFlag";
 import ResultsAnalysis from "@/components/ResultsAnalysis";
 import { Separator } from "@/components/ui/separator";
+import UserAvatar from "@/components/UserAvatar";
 
 type TopicPageProps = {
   params: {
@@ -57,10 +57,7 @@ export default function TopicPage({ params }: TopicPageProps) {
             </h1>
             <div className="flex items-center space-x-4 text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src={topic.author.avatarUrl} alt={topic.author.name} data-ai-hint="person portrait" />
-                  <AvatarFallback>{topic.author.name.charAt(0)}</AvatarFallback>
-                </Avatar>
+                <UserAvatar user={topic.author} className="h-8 w-8" />
                 <span className="font-medium">{topic.author.name}</span>
               </div>
               <span>•</span>

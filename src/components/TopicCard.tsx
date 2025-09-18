@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { ThumbsDown, ThumbsUp, MessageSquare, Globe } from "lucide-react";
@@ -6,13 +5,13 @@ import type { Topic } from "@/lib/types";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import CountryFlag from "./CountryFlag";
+import UserAvatar from "./UserAvatar";
 
 type TopicCardProps = {
   topic: Topic;
 };
 
 export default function TopicCard({ topic }: TopicCardProps) {
-  const totalVotes = topic.votes.for + topic.votes.against;
   const timeAgo = formatDistanceToNow(new Date(topic.createdAt), { addSuffix: true });
 
   return (
@@ -48,10 +47,7 @@ export default function TopicCard({ topic }: TopicCardProps) {
       </CardContent>
       <CardFooter className="flex justify-between items-center">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <Avatar className="h-6 w-6">
-            <AvatarImage src={topic.author.avatarUrl} alt={topic.author.name} data-ai-hint="person portrait" />
-            <AvatarFallback>{topic.author.name.charAt(0)}</AvatarFallback>
-          </Avatar>
+          <UserAvatar user={topic.author} className="h-6 w-6" />
           <span>{topic.author.name}</span>
         </div>
         <div className="flex items-center gap-4 text-sm">

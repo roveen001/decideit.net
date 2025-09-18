@@ -1,14 +1,14 @@
 "use client";
 
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { addComment } from "@/lib/actions";
 import { Textarea } from "@/components/ui/textarea";
 import { SubmitButton } from "./SubmitButton";
 import { Card, CardContent } from "./ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { User } from "lucide-react";
+import { useUser } from "@/hooks/useUser";
+import UserAvatar from "./UserAvatar";
 
 const commentSchema = z.object({
   comment: z.string().min(1, "Comment cannot be empty").max(500, "Comment cannot exceed 500 characters"),
@@ -24,6 +24,8 @@ export default function AddCommentForm({ topicId }: AddCommentFormProps) {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<CommentFormValues>({
     resolver: zodResolver(commentSchema),
   });
+  const { user } = useUser();
+
 
   const onSubmit = async (data: CommentFormValues) => {
     const formData = new FormData();
@@ -39,12 +41,7 @@ export default function AddCommentForm({ topicId }: AddCommentFormProps) {
     <Card>
       <CardContent className="p-4">
         <form onSubmit={handleSubmit(onSubmit)} className="flex items-start gap-4">
-            <Avatar className="h-10 w-10 border mt-1">
-                <AvatarImage src="https://picsum.photos/seed/user-profile/40/40" alt="@user" />
-                <AvatarFallback>
-                    <User />
-                </AvatarFallback>
-            </Avatar>
+            {user && <UserAvatar user={user} className="h-10 w-10 border mt-1" />}
             <div className="flex-1 space-y-2">
                 <Textarea
                     {...register("comment")}

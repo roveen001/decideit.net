@@ -4,11 +4,10 @@ import { useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { ThumbsUp, ThumbsDown, MessageSquare } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import type { Comment } from "@/lib/types";
 import AddReplyForm from "./AddReplyForm";
+import UserAvatar from "./UserAvatar";
 
 type CommentCardProps = {
   comment: Comment;
@@ -28,10 +27,7 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
   return (
     <div className="flex gap-4">
       {!isReply && (
-         <Avatar className="h-10 w-10 border mt-1">
-          <AvatarImage src={comment.author.avatarUrl} alt={comment.author.name} data-ai-hint="person portrait" />
-          <AvatarFallback>{comment.author.name.charAt(0)}</AvatarFallback>
-        </Avatar>
+         <UserAvatar user={comment.author} className="h-10 w-10 border mt-1" />
       )}
       <div className="flex-1">
         <Card className={isReply ? "bg-muted/50" : "bg-card"}>
@@ -39,10 +35,7 @@ export default function CommentCard({ comment, topicId, isReply = false }: Comme
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                  {isReply && (
-                    <Avatar className="h-6 w-6 border">
-                        <AvatarImage src={comment.author.avatarUrl} alt={comment.author.name} data-ai-hint="person portrait" />
-                        <AvatarFallback>{comment.author.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
+                    <UserAvatar user={comment.author} className="h-6 w-6 border" />
                 )}
                 <p className="font-semibold">{comment.author.name}</p>
               </div>

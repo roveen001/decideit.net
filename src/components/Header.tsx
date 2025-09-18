@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
-import { FileCheck2, PlusCircle, User, Vote, ListCollapse } from "lucide-react";
+import { FileCheck2, PlusCircle, ListCollapse, Vote } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
@@ -15,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { useUser } from "@/hooks/useUser";
+import UserAvatar from "./UserAvatar";
 
 export default function Header() {
   const pathname = usePathname();
@@ -52,12 +52,7 @@ export default function Header() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                <Avatar className="h-9 w-9">
-                  <AvatarImage src={user?.avatarUrl} alt={user?.name || "User"} />
-                  <AvatarFallback>
-                    <User />
-                  </AvatarFallback>
-                </Avatar>
+                {user && <UserAvatar user={user} className="h-9 w-9" />}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
